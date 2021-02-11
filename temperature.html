@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fliud">
+            <div class="navbar-header">
+                <a href="" class="navbar-brand">Unit Converter <i class="fas fa-tools" style="color: grey;"></i></a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href ="index.html">Length</a></li>
+                <li class="active"><a href ="temperature.html">Temperature</a></li>
+                <li><a href ="weight.html">Weight</a></li>
+                <li><a href ="time.html">Time</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div>
+            <h3 style="margin: 2rem;">Temperature Converter</h3>
+        </div>
+
+        <div class="container-block">
+            <div class="container-to">
+                <div class="form-group"style="display: flex; flex-direction: column;">
+                    <label for="input">To</label>
+                    <input type="number" id='input' placeholder="Enter the value">
+                    <select name="inputType" id="inputType">
+                        <option value="Celcius">Celcius</option>
+                        <option value="Kelvin">Kelvin</option>
+                        <option value="Fahrenheit">Fahrenheit</option>
+                    </select>
+                </div>
+
+                <!--div class="form-group">
+                    <div class="unit-box">
+                            <input type="button" value="Celcius" id="Celcius">
+                            <input type="button" value="Kelvin" id="Kelvin">
+                            <input type="button" value="Fahrenheit" id="Fahrenheit">
+                    </div>
+                </div-->
+
+            </div>
+
+            <div class="container-from">
+                <div class="form-group"style="display: flex; flex-direction: column;">
+                    <label for="output">From</label>
+                    <input type="number" id='output' placeholder="Result will be shown here">
+                    <select name="resultType" id="resultType">
+                        <option value="Celcius">Celcius</option>
+                        <option value="Kelvin">Kelvin</option>
+                        <option value="Fahrenheit">Fahrenheit</option>
+                    </select>
+                </div>
+
+                <!--div class="form-group">
+                    <div class="unit-box">
+                        <input type="number"  id="CelciusRes">
+                        <input type="number"  id="KelvinRes">
+                        <input type="number"  id="FahrenheitRes">    
+                    </div>
+                </div-->
+            </div>
+        </div>  
+
+        <div class="container-block" style="display: flex; flex-direction: column; align-items: center;"">
+            <div><h3>Results: </h3></div>
+            <div class="form-group" style="display: flex; flex-direction: column; align-items: center;">
+                <label for="CelciusRes">Celcius[<span>&#8451</span>]: </label>
+                <input type="text"  id="CelciusRes">
+            </div>
+            <div class="form-group" style="display: flex; flex-direction: column; align-items: center;">
+                <label for="KelvinRes">Kelvin[K]: </label>
+                <input type="text"  id="KelvinRes">
+            </div>
+            <div class="form-group" style="display: flex; flex-direction: column; align-items: center;">
+                <label for="FahrenheitRes">Fahrenheit[<span>&#8457</span>]: </label>
+                <input type="text"  id="FahrenheitRes">
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+
+        function ToCelcius() {
+            const c = input.value;
+            const k = 273.15 + parseInt(c);
+            const f = 1.8 *c +32;
+
+            if(resType.value === "Celcius")
+                result.value =c;
+            else if(resType.value === "Kelvin")
+                result.value =k;
+            else
+                 result.value =f;
+
+            document.querySelector('#CelciusRes').value= c;
+            document.querySelector('#KelvinRes').value = k;
+            document.querySelector('#FahrenheitRes').value = f;
+        }
+
+        function ToKelvin() {
+            const k = input.value;
+            const c = k - 273.15;
+            const f = 1.8 *k - 459.67;
+
+
+            if(resType.value === "Celcius")
+                result.value =c;
+            else if(resType.value === "Kelvin")
+                result.value =k;
+            else
+                 result.value =f;
+
+            document.querySelector('#CelciusRes').value= c;
+            document.querySelector('#KelvinRes').value = k;
+            document.querySelector('#FahrenheitRes').value = f;
+
+
+
+        }
+
+        function ToFahrenheit() {
+            const f  = input.value;
+            const c = (f -32) * (5/9);
+            const k = ((f-32)*5)/9  + 273.15 
+
+
+            if(resType.value === "Celcius")
+                result.value =c;
+            else if(resType.value === "Kelvin")
+                result.value =k;
+            else
+                 result.value =f;
+
+            document.querySelector('#CelciusRes').value= c;
+            document.querySelector('#KelvinRes').value = k;
+            document.querySelector('#FahrenheitRes').value = f;
+
+        }
+
+        function myResult(){
+
+            inputTypeValue = inpType.value;
+            resultTypeValue = resType.value;
+            
+            if(inputTypeValue === "Celcius" && resultTypeValue === "Celcius"){
+                ToCelcius();
+            }
+            else if(inputTypeValue === "Celcius" && resultTypeValue === "Kelvin"){
+                ToCelcius();
+            }else if (inputTypeValue === "Celcius" && resultTypeValue === "Fahrenheit"){
+                ToCelcius();
+            }
+
+            if(inputTypeValue === "Kelvin" && resultTypeValue === "Celcius"){
+                ToKelvin();
+            }
+            else if(inputTypeValue === "Kelvin" && resultTypeValue === "Kelvin"){
+                ToKelvin();
+            }else if (inputTypeValue === "Kelvin" && resultTypeValue === "Fahrenheit"){
+                ToKelvin();
+            }
+
+
+            if(inputTypeValue === "Fahrenheit" && resultTypeValue === "Celcius"){
+                ToFahrenheit();
+            }
+            else if(inputTypeValue === "Fahrenheit" && resultTypeValue === "Kelvin"){
+                ToFahrenheit();
+            }else if (inputTypeValue === "Fahrenheit" && resultTypeValue === "Fahrenheit"){
+                ToFahrenheit();
+            }
+
+
+
+
+
+
+
+        }
+
+        const input = document.querySelector('#input');
+        const result = document.querySelector('#output');
+        const inpType = document.querySelector('#inputType');
+        const resType = document.querySelector('#resultType');
+
+        let inputTypeValue,resultTypeValue;
+
+        inputTypeValue = inpType.value;
+        resultTypeValue = resType.value;
+
+        input.addEventListener('keyup', myResult);
+        inpType.addEventListener('change', myResult);
+        resType.addEventListener('change', myResult);
+
+
+    </script>
+
+    
+</body>
+</html>

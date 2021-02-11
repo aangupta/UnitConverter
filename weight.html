@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fliud">
+            <div class="navbar-header">
+                <a href="" class="navbar-brand">Unit Converter <i class="fas fa-tools" style="color: grey;"></i></a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href ="index.html">Length</a></li>
+                <li><a href ="temperature.html">Temperature</a></li>
+                <li class="active"><a href ="weight.html">Weight</a></li>
+                <li><a href ="time.html">Time</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    
+    <div class="container">
+        <div>
+            <h3 style="margin: 2rem;">Weight Converter</h3>
+        </div>
+
+        <div class="container-block">
+            <div class="container-to">
+                <div class="form-group"style="display: flex; flex-direction: column;">
+                    <label for="input">To</label>
+                    <input type="number" id='input' placeholder="Enter the value">
+
+                    <select name="inputType" id="inputType">
+                        <option value="Kilogram">Kilogram</option>
+                        <option value="Milligram">Milligram</option>
+                        <option value="Gram">Gram</option>
+                        <option value="Pound">Pound</option>
+                        <option value="Ounce">Ounce</option>
+                    </select>
+                </div>
+
+                
+
+            </div>
+
+            <div class="container-from">
+                <div class="form-group"style="display: flex; flex-direction: column;">
+                    <label for="output">From</label>
+                    <input type="number" id='output' placeholder="Result will be shown here">
+
+                    <select name="resultType" id="resultType">
+                        <option value="Kilogram">Kilogram</option>
+                        <option value="Milligram">Milligram</option>
+                        <option value="Gram">Gram</option>
+                        <option value="Pound">Pound</option>
+                        <option value="Ounce">Ounce</option>
+                    </select>
+
+                </div>
+
+ 
+
+            </div>
+
+        </div>
+
+        <div class="container-block" style="display: flex; flex-direction: column; align-items: center;">
+            <div><h3>Results: </h3></div>
+            <div class="form-group" style="display: flex; flex-direction: column; align-items: center;">
+                <label for="KilogramRes">Kilogram[kg]: </label>
+                <input type="text"  id="KilogramRes">
+            </div>
+            <div class="form-group" style="display: flex; flex-direction: column; align-items: center;">
+                <label for="MilligramRes">Milligram[mg]: </label>
+                <input type="text"  id="MilligramRes">
+            </div>
+            <div class="form-group" style="display: flex; flex-direction: column; align-items: center;">
+                <label for="GramRes">Gram[g]: </label>
+                <input type="text"  id="GramRes">
+            </div>
+            <div class="form-group" style="display: flex; flex-direction: column; align-items: center;">
+                <label for="PoundRes">Pound[lbs]: </label>
+                <input type="text"  id="PoundRes">
+            </div>
+            <div class="form-group" style="display: flex; flex-direction: column; align-items: center;">
+                <label for="OunceRes">Ounce[oz]: </label>
+                <input type="text"  id="OunceRes">
+            </div>
+        </div>
+       
+    </div>
+
+    <script>
+
+        function ToKilogram() {
+            const kg = input.value;
+            const mg = 1000000*kg;
+            const g = 1000*kg;
+            const p = 2.20462*kg;
+            const o = 35.274*kg;
+
+            if(resType.value === "Kilogram")
+                result.value=kg;
+            else if(resType.value === "Milligram")
+                result.value=mg;
+            else if(resType.value === "Gram")
+                result.value=g;
+            else if(resType.value === "Pound")
+                result.value=p;
+            else if(resType.value === "Ounce")
+                result.value=o;
+
+            document.querySelector('#KilogramRes').value = kg;
+            document.querySelector('#MilligramRes').value = mg;
+            document.querySelector('#GramRes').value = g;
+            document.querySelector('#PoundRes').value = p;
+            document.querySelector('#OunceRes').value = o;
+        }
+
+        function ToMilligram() {
+
+            const mg = input.value;
+            const g = 0.001 *mg;
+            const kg = 0.000001*mg;
+            const p = 0.00000220462*mg;
+            const o =  0.000035274*mg;
+
+            if(resType.value === "Kilogram")
+                result.value=kg;
+            else if(resType.value === "Milligram")
+                result.value=mg;
+            else if(resType.value === "Gram")
+                result.value=g;
+            else if(resType.value === "Pound")
+                result.value=p;
+            else if(resType.value === "Ounce")
+                result.value=o;
+
+            document.querySelector('#KilogramRes').value = kg;
+            document.querySelector('#MilligramRes').value = mg;
+            document.querySelector('#GramRes').value = g;
+            document.querySelector('#PoundRes').value = p;
+            document.querySelector('#OunceRes').value = o;
+
+        }
+
+        function ToGram() {
+            const g = input.value;
+            const kg = 0.001*g;
+            const mg = 1000*g;
+            const p = 0.00220462*g;
+            const o = 0.035274*g;
+
+            if(resType.value === "Kilogram")
+                result.value=kg;
+            else if(resType.value === "Milligram")
+                result.value=mg;
+            else if(resType.value === "Gram")
+                result.value=g;
+            else if(resType.value === "Pound")
+                result.value=p;
+            else if(resType.value === "Ounce")
+                result.value=o;
+
+            document.querySelector('#KilogramRes').value = kg;
+            document.querySelector('#MilligramRes').value = mg;
+            document.querySelector('#GramRes').value = g;
+            document.querySelector('#PoundRes').value = p;
+            document.querySelector('#OunceRes').value = o;
+
+        }
+
+        function ToPound() {
+            const p = input.value;
+            const g = 453.592*p;
+            const kg = 0.453592*p;
+            const mg = 453592*p;
+            const o = 16*p;
+
+            if(resType.value === "Kilogram")
+                result.value=kg;
+            else if(resType.value === "Milligram")
+                result.value=mg;
+            else if(resType.value === "Gram")
+                result.value=g;
+            else if(resType.value === "Pound")
+                result.value=p;
+            else if(resType.value === "Ounce")
+                result.value=o;
+
+            document.querySelector('#KilogramRes').value = kg;
+            document.querySelector('#MilligramRes').value = mg;
+            document.querySelector('#GramRes').value = g;
+            document.querySelector('#PoundRes').value = p;
+            document.querySelector('#OunceRes').value = o;
+        }
+
+        function ToOunce() {
+            const o = input.value;
+            const kg = 0.0283495 *o;
+            const g = 28.3495 *o;
+            const mg  = 28349.5*o;
+            const p = 0.0625*o;
+
+
+            if(resType.value === "Kilogram")
+                result.value=kg;
+            else if(resType.value === "Milligram")
+                result.value=mg;
+            else if(resType.value === "Gram")
+                result.value=g;
+            else if(resType.value === "Pound")
+                result.value=p;
+            else if(resType.value === "Ounce")
+                result.value=o;
+
+            document.querySelector('#KilogramRes').value = kg;
+            document.querySelector('#MilligramRes').value = mg;
+            document.querySelector('#GramRes').value = g;
+            document.querySelector('#PoundRes').value = p;
+            document.querySelector('#OunceRes').value = o;
+        }
+
+        function myResult() {
+            inputTypeValue = inpType.value;
+            resultTypeValue = resType.value;
+
+            //Kilogram
+
+            if(inputTypeValue === "Kilogram" && resultTypeValue === "Kilogram")
+                ToKilogram();
+            else if(inputTypeValue === "Kilogram" && resultTypeValue === "Milligram")
+                ToKilogram();
+            else if(inputTypeValue === "Kilogram" && resultTypeValue === "Gram")
+                ToKilogram();
+            else if(inputTypeValue === "Kilogram" && resultTypeValue === "Pound")
+                ToKilogram();
+            else if(inputTypeValue === "Kilogram" && resultTypeValue === "Ounce")
+                ToKilogram();
+
+            //Milligram
+
+            if(inputTypeValue === "Milligram" && resultTypeValue === "Milligram")
+                ToMilligram();
+            else if(inputTypeValue === "Milligram" && resultTypeValue === "Kilogram")
+                ToMilligram();
+            else if(inputTypeValue === "Milligram" && resultTypeValue === "Gram")
+                ToMilligram();
+            else if(inputTypeValue === "Milligram" && resultTypeValue === "Pound")
+                ToMilligram();
+            else if(inputTypeValue === "Milligram" && resultTypeValue === "Ounce")
+                ToMilligram();
+            
+            //Gram
+
+            if(inputTypeValue === "Gram" && resultTypeValue === "Gram")
+                ToGram();
+            else if(inputTypeValue === "Gram" && resultTypeValue === "Kilogram")
+                ToGram();
+            else if(inputTypeValue === "Gram" && resultTypeValue === "Miligram")
+                ToGram();
+            else if(inputTypeValue === "Gram" && resultTypeValue === "Pound")
+                ToGram();
+            else if(inputTypeValue === "Gram" && resultTypeValue === "Ounce")
+                ToGram();
+
+            //Pound
+
+            if(inputTypeValue === "Pound" && resultTypeValue === "Pound")
+                ToPound();
+            else if(inputTypeValue === "Pound" && resultTypeValue === "Kilogram")
+                ToPound();
+            else if(inputTypeValue === "Pound" && resultTypeValue === "Miligram")
+                ToPound();
+            else if(inputTypeValue === "Pound" && resultTypeValue === "Gram")
+                ToPound();
+            else if(inputTypeValue === "Pound" && resultTypeValue === "Ounce")
+                ToPound();
+
+            //Ounce
+
+            if(inputTypeValue === "Ounce" && resultTypeValue === "Ounce")
+                ToOunce();
+            else if(inputTypeValue === "Ounce" && resultTypeValue === "Kilogram")
+                ToOunce();
+            else if(inputTypeValue === "Ounce" && resultTypeValue === "Miligram")
+                ToOunce();
+            else if(inputTypeValue === "Ounce" && resultTypeValue === "Gram")
+                ToOunce();
+            else if(inputTypeValue === "Ounce" && resultTypeValue === "Pound")
+                ToOunce();
+
+
+        }
+        const input = document.querySelector('#input');
+        const result = document.querySelector('#output');
+        const inpType = document.querySelector('#inputType');
+        const resType = document.querySelector('#resultType');
+
+        let inputTypeValue,resultTypeValue;
+
+        inputTypeValue = inpType.value;
+        resultTypeValue = resType.value;
+
+        input.addEventListener('keyup', myResult);
+        inpType.addEventListener('change', myResult);
+        resType.addEventListener('change', myResult);
+
+    </script>
+    
+</body>
+</html>

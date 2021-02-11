@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UnitConverter</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fliud">
+            <div class="navbar-header">
+                <a href="" class="navbar-brand">Unit Converter <i class="fas fa-tools" style="color: grey;"></i></a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href ="index">Length</a></li>
+                <li><a href ="temperature.html">Temperature</a></li>
+                <li><a href ="weight.html">Weight</a></li>
+                <li><a href ="time.html">Time</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div>
+            <h3 style="margin: 2rem;">Length Converter</h3>
+        </div>
+
+        <div class="container-block">
+            <div class="container-to">
+                <div class="form-group"style="display: flex; flex-direction: column;">
+                    <label for="input">To</label>
+                    <input type="number" id='input' placeholder="Enter the value">
+                </div>
+
+                <select name="inputType" id="inputType">
+                    <option value="Meter">Meter</option>
+                    <option value="Kilometer">Kilometer</option>
+                    <option value="Millimeter">Millimeter</option>
+                    <option value="Centimeter">Centimeter</option>
+                    <option value="Micrometer">Micrometer</option>
+                    <option value="Nanometer">Nanometer</option>
+                    <option value="Foot">Foot</option>
+                    <option value="Mile">Mile</option>
+                    <option value="Inch">Inch</option>
+                    <option value="Yard">Yard</option>
+                </select>
+
+               
+
+            </div>
+
+            <div class="container-from">
+                <div class="form-group"style="display: flex; flex-direction: column;">
+                    <label for="output">From</label>
+                    <input type="number" id='output' placeholder="Result will be shown here">
+                </div>
+
+                <select name="resultType" id="resultType">
+                    <option value="Meter">Meter</option>
+                    <option value="Kilometer">Kilometer</option>
+                    <option value="Millimeter">Millimeter</option>
+                    <option value="Centimeter">Centimeter</option>
+                    <option value="Micrometer">Micrometer</option>
+                    <option value="Nanometer">Nanometer</option>
+                    <option value="Foot">Foot</option>
+                    <option value="Mile">Mile</option>
+                    <option value="Inch">Inch</option>
+                    <option value="Yard">Yard</option>
+                </select>
+
+
+               
+            </div>
+
+        </div>
+
+        <div><h3>Results: </h3></div>
+
+        <div class="container-block">
+            
+            <div class="container-left " style ="margin: 2rem;">
+
+                <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                    <label for="MeterRes">Meter[m]: </label>
+                    <input type="text"  id="MeterRes">
+                </div>
+ 
+                 <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                     <label for="KilometerRes">Kilometer[km]: </label>
+                     <input type="text"  id="KilometerRes">
+                 </div>
+                 <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                     <label for="MillimeterRes">Millimeter[mm]: </label>
+                     <input type="text"  id="MillimeterRes">
+                 </div>
+                 <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                     <label for="CentimeterRes">Centimeter[cm]: </label>
+                     <input type="text"  id="CentimeterRes">
+                 </div>
+ 
+                 <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                     <label for="MicrometerRes">Micrometer[<span>&#181;</span>s]: </label>
+                     <input type="text"  id="MicrometerRes">
+                 </div>
+ 
+            </div>
+
+            <div class="container-block">
+            
+                <div class="container-left " style ="margin: 2rem;">
+    
+                    <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                        <label for="NanometerRes">Nanometer[nm]: </label>
+                        <input type="text"  id="NanometerRes">
+                    </div>
+     
+                     <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                         <label for="FootRes">Foot[ft]: </label>
+                         <input type="text"  id="FootRes">
+                     </div>
+                     <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                         <label for="MileRes">Mile[mi]: </label>
+                         <input type="text"  id="MileRes">
+                     </div>
+                     <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                         <label for="InchRes">Inch[in]: </label>
+                         <input type="text"  id="InchRes">
+                     </div>
+     
+                     <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                         <label for="YardRes">Yard[yd]: </label>
+                         <input type="text"  id="YardRes">
+                     </div>
+     
+                </div>
+
+       
+    </div>
+
+    <script>
+
+        function ToMeter(){
+            const m = input.value;
+            const km = 0.001 *m;
+            const mm = 1000*m;
+            const microm = 1000000*m;
+            const cm = 100*m;
+            const nm =1000000000*m;
+            const yd =1.09361*m;
+            const mi=0.000621371*m;
+            const inch = 39.3701*m;
+            const ft= 3.28084*m;
+
+
+            if(resType.value === "Meter")
+                result.value=m;
+            else if(resType.value === "Kilometer")
+                result.value=km;
+            else if(resType.value === "Millimeter")
+                result.value=mm;
+            else if(resType.value === "Micrometer")
+                result.value=microm;
+            else if(resType.value === "Nanometer")
+                result.value=nm;
+            else if(resType.value === "Centimeter")
+                result.value=cm;
+            else if(resType.value === "Mile")
+                result.value=mi;
+            else if(resType.value === "Yard")
+                result.value=yd;
+            else if(resType.value === "Foot")
+                result.value=ft;
+            else if(resType.value === "Inch")
+                result.value=inch;
+
+            document.querySelector('#MeterRes').value=m;
+            document.querySelector('#KilometerRes').value=km;
+            document.querySelector('#CentimeterRes').value=cm;
+            document.querySelector('#MillimeterRes').value=mm;
+            document.querySelector('#MicrometerRes').value=microm;
+            document.querySelector('#NanometerRes').value=nm;
+            document.querySelector('#MileRes').value=mi;
+            document.querySelector('#YardRes').value=yd;
+            document.querySelector('#FootRes').value=ft;
+            document.querySelector('#InchRes').value=inch;
+           
+        }
+
+        function ToKilometer() {
+            const km = input.value;
+            const m = 1000*km;
+            const cm= 100000*km;
+            const mm = 1000000*km;
+            const microm = 1000000000*km;
+            const nm = 1000000000000*km;
+            const mi = 0.621371*km;
+            const inch = 39370.1*km;
+            const yd = 1093.61*km;
+            const ft = 3280.84*km;
+
+       
+            if(resType.value === "Meter")
+                result.value=m;
+            else if(resType.value === "Kilometer")
+                result.value=km;
+            else if(resType.value === "Millimeter")
+                result.value=mm;
+            else if(resType.value === "Micrometer")
+                result.value=microm;
+            else if(resType.value === "Nanometer")
+                result.value=nm;
+            else if(resType.value === "Centimeter")
+                result.value=cm;
+            else if(resType.value === "Mile")
+                result.value=mi;
+            else if(resType.value === "Yard")
+                result.value=yd;
+            else if(resType.value === "Foot")
+                result.value=ft;
+            else if(resType.value === "Inch")
+                result.value=inch;
+
+            document.querySelector('#MeterRes').value=m;
+            document.querySelector('#KilometerRes').value=km;
+            document.querySelector('#CentimeterRes').value=cm;
+            document.querySelector('#MillimeterRes').value=mm;
+            document.querySelector('#MicrometerRes').value=microm;
+            document.querySelector('#NanometerRes').value=nm;
+            document.querySelector('#MileRes').value=mi;
+            document.querySelector('#YardRes').value=yd;
+            document.querySelector('#FootRes').value=ft;
+            document.querySelector('#InchRes').value=inch;
+           
+
+        }
+
+        function ToCentimeter() {
+
+            const cm = input.value;
+            const m = 0.01*cm;
+            const km =  0.00001*cm;
+            const mm = 10*cm;
+            const microm = 10000*cm;
+            const nm = 10000000*cm;
+            const mi = 0.00000621371*cm;
+            const ft = 0.0328084*cm;
+            const yd = 0.0109361*cm;
+            const inch = 0.393701*cm;
+
+
+            if(resType.value === "Meter")
+                result.value=m;
+            else if(resType.value === "Kilometer")
+                result.value=km;
+            else if(resType.value === "Millimeter")
+                result.value=mm;
+            else if(resType.value === "Micrometer")
+                result.value=microm;
+            else if(resType.value === "Nanometer")
+                result.value=nm;
+            else if(resType.value === "Centimeter")
+                result.value=cm;
+            else if(resType.value === "Mile")
+                result.value=mi;
+            else if(resType.value === "Yard")
+                result.value=yd;
+            else if(resType.value === "Foot")
+                result.value=ft;
+            else if(resType.value === "Inch")
+                result.value=inch;
+
+            document.querySelector('#MeterRes').value=m;
+            document.querySelector('#KilometerRes').value=km;
+            document.querySelector('#CentimeterRes').value=cm;
+            document.querySelector('#MillimeterRes').value=mm;
+            document.querySelector('#MicrometerRes').value=microm;
+            document.querySelector('#NanometerRes').value=nm;
+            document.querySelector('#MileRes').value=mi;
+            document.querySelector('#YardRes').value=yd;
+            document.querySelector('#FootRes').value=ft;
+            document.querySelector('#InchRes').value=inch;
+
+
+        }
+
+        function ToMillimeter() {
+
+            const mm = input.value;
+            const km =  0.000001*mm;
+            const cm = 0.1*mm;
+            const microm = 1000*mm;
+            const nm = 1000000*mm;
+            const m = 0.001*mm;
+            const mi = 0.000000621371*mm;
+            const ft = 0.00328084*mm;
+            const yd = 0.00109361*mm;
+            const inch = 0.0393701*mm;
+
+            if(resType.value === "Meter")
+                result.value=m;
+            else if(resType.value === "Kilometer")
+                result.value=km;
+            else if(resType.value === "Millimeter")
+                result.value=mm;
+            else if(resType.value === "Micrometer")
+                result.value=microm;
+            else if(resType.value === "Nanometer")
+                result.value=nm;
+            else if(resType.value === "Centimeter")
+                result.value=cm;
+            else if(resType.value === "Mile")
+                result.value=mi;
+            else if(resType.value === "Yard")
+                result.value=yd;
+            else if(resType.value === "Foot")
+                result.value=ft;
+            else if(resType.value === "Inch")
+                result.value=inch;
+
+            document.querySelector('#MeterRes').value=m;
+            document.querySelector('#KilometerRes').value=km;
+            document.querySelector('#CentimeterRes').value=cm;
+            document.querySelector('#MillimeterRes').value=mm;
+            document.querySelector('#MicrometerRes').value=microm;
+            document.querySelector('#NanometerRes').value=nm;
+            document.querySelector('#MileRes').value=mi;
+            document.querySelector('#YardRes').value=yd;
+            document.querySelector('#FootRes').value=ft;
+            document.querySelector('#InchRes').value=inch;
+
+        }
+
+        function ToMicrometer() {
+
+            const microm = input.value;
+            const km = 0.000000001*microm;
+            const m = 0.000001*microm;
+            const mm = 0.001*microm;
+            const cm = 0.0001*microm;
+            const nm = 1000*microm;
+            const mi = 0.000000000621371*microm;
+            const yd = 1.09361e-6*microm;
+            const ft = 3.28084e-6*microm;
+            const inch = 0.0000393701*microm;
+
+
+            if(resType.value === "Meter")
+                result.value=m;
+            else if(resType.value === "Kilometer")
+                result.value=km;
+            else if(resType.value === "Millimeter")
+                result.value=mm;
+            else if(resType.value === "Micrometer")
+                result.value=microm;
+            else if(resType.value === "Nanometer")
+                result.value=nm;
+            else if(resType.value === "Centimeter")
+                result.value=cm;
+            else if(resType.value === "Mile")
+                result.value=mi;
+            else if(resType.value === "Yard")
+                result.value=yd;
+            else if(resType.value === "Foot")
+                result.value=ft;
+            else if(resType.value === "Inch")
+                result.value=inch;
+
+            document.querySelector('#MeterRes').value=m;
+            document.querySelector('#KilometerRes').value=km;
+            document.querySelector('#CentimeterRes').value=cm;
+            document.querySelector('#MillimeterRes').value=mm;
+            document.querySelector('#MicrometerRes').value=microm;
+            document.querySelector('#NanometerRes').value=nm;
+            document.querySelector('#MileRes').value=mi;
+            document.querySelector('#YardRes').value=yd;
+            document.querySelector('#FootRes').value=ft;
+            document.querySelector('#InchRes').value=inch;
+
+        }
+
+        function ToNanometer() {
+
+            const nm = input.value;
+            const km =  0.000000000001*nm;
+            const m =  0.000000001*nm;
+            const mm = 0.000001*nm;
+            const microm = 0.001*nm;
+            const cm = 0.0000001*nm;
+            const mi = 0.000000000000621371*nm;
+            const yd = 0.00000000109361*nm;
+            const ft =  0.00000000328084*nm;
+            const inch =  0.0000000393701*nm;
+
+            if(resType.value === "Meter")
+                result.value=m;
+            else if(resType.value === "Kilometer")
+                result.value=km;
+            else if(resType.value === "Millimeter")
+                result.value=mm;
+            else if(resType.value === "Micrometer")
+                result.value=microm;
+            else if(resType.value === "Nanometer")
+                result.value=nm;
+            else if(resType.value === "Centimeter")
+                result.value=cm;
+            else if(resType.value === "Mile")
+                result.value=mi;
+            else if(resType.value === "Yard")
+                result.value=yd;
+            else if(resType.value === "Foot")
+                result.value=ft;
+            else if(resType.value === "Inch")
+                result.value=inch;
+
+            document.querySelector('#MeterRes').value=m;
+            document.querySelector('#KilometerRes').value=km;
+            document.querySelector('#CentimeterRes').value=cm;
+            document.querySelector('#MillimeterRes').value=mm;
+            document.querySelector('#MicrometerRes').value=microm;
+            document.querySelector('#NanometerRes').value=nm;
+            document.querySelector('#MileRes').value=mi;
+            document.querySelector('#YardRes').value=yd;
+            document.querySelector('#FootRes').value=ft;
+            document.querySelector('#InchRes').value=inch;
+
+        }
+
+        function ToMile() {
+
+            const mi = input.value;
+            const km = 1.60934*mi;
+            const m = 1609.34*mi;
+            const cm = 160934 *mi;
+            const mm = 1609000*mi;
+            const microm = 1609000000*mi;
+            const nm = 1609000000000*mi;
+            const yd = 1760*mi;
+            const ft = 5280*mi;
+            const inch = 63360*mi;
+
+
+            if(resType.value === "Meter")
+                result.value=m;
+            else if(resType.value === "Kilometer")
+                result.value=km;
+            else if(resType.value === "Millimeter")
+                result.value=mm;
+            else if(resType.value === "Micrometer")
+                result.value=microm;
+            else if(resType.value === "Nanometer")
+                result.value=nm;
+            else if(resType.value === "Centimeter")
+                result.value=cm;
+            else if(resType.value === "Mile")
+                result.value=mi;
+            else if(resType.value === "Yard")
+                result.value=yd;
+            else if(resType.value === "Foot")
+                result.value=ft;
+            else if(resType.value === "Inch")
+                result.value=inch;
+
+            document.querySelector('#MeterRes').value=m;
+            document.querySelector('#KilometerRes').value=km;
+            document.querySelector('#CentimeterRes').value=cm;
+            document.querySelector('#MillimeterRes').value=mm;
+            document.querySelector('#MicrometerRes').value=microm;
+            document.querySelector('#NanometerRes').value=nm;
+            document.querySelector('#MileRes').value=mi;
+            document.querySelector('#YardRes').value=yd;
+            document.querySelector('#FootRes').value=ft;
+            document.querySelector('#InchRes').value=inch;
+
+        }
+
+        function ToFoot() {
+
+            const ft  = input.value;
+            const km = 0.0003048*ft;
+            const m = 0.3048*ft;
+            const cm = 30.48*ft;
+            const mm = 304.8*ft;
+            const nm = 304800000*ft;
+            const microm = 304800*ft;
+            const mi = 0.000189394*ft;
+            const yd = 0.333333*ft;
+            const inch = 12*ft;
+
+
+            if(resType.value === "Meter")
+                result.value=m;
+            else if(resType.value === "Kilometer")
+                result.value=km;
+            else if(resType.value === "Millimeter")
+                result.value=mm;
+            else if(resType.value === "Micrometer")
+                result.value=microm;
+            else if(resType.value === "Nanometer")
+                result.value=nm;
+            else if(resType.value === "Centimeter")
+                result.value=cm;
+            else if(resType.value === "Mile")
+                result.value=mi;
+            else if(resType.value === "Yard")
+                result.value=yd;
+            else if(resType.value === "Foot")
+                result.value=ft;
+            else if(resType.value === "Inch")
+                result.value=inch;
+
+            document.querySelector('#MeterRes').value=m;
+            document.querySelector('#KilometerRes').value=km;
+            document.querySelector('#CentimeterRes').value=cm;
+            document.querySelector('#MillimeterRes').value=mm;
+            document.querySelector('#MicrometerRes').value=microm;
+            document.querySelector('#NanometerRes').value=nm;
+            document.querySelector('#MileRes').value=mi;
+            document.querySelector('#YardRes').value=yd;
+            document.querySelector('#FootRes').value=ft;
+            document.querySelector('#InchRes').value=inch;
+
+        }
+
+        function ToYard() {
+
+            const yd = input.value;
+            const km = 0.0009144*yd;
+            const m = 0.9144*yd;
+            const cm = 91.44*yd;
+            const nm = 914400000*yd;
+            const mm = 914.4*yd;
+            const microm = 914400*yd;
+            const mi = 0.000568182*yd;
+            const ft = 3*yd;
+            const inch = 36*yd;
+
+            if(resType.value === "Meter")
+                result.value=m;
+            else if(resType.value === "Kilometer")
+                result.value=km;
+            else if(resType.value === "Millimeter")
+                result.value=mm;
+            else if(resType.value === "Micrometer")
+                result.value=microm;
+            else if(resType.value === "Nanometer")
+                result.value=nm;
+            else if(resType.value === "Centimeter")
+                result.value=cm;
+            else if(resType.value === "Mile")
+                result.value=mi;
+            else if(resType.value === "Yard")
+                result.value=yd;
+            else if(resType.value === "Foot")
+                result.value=ft;
+            else if(resType.value === "Inch")
+                result.value=inch;
+
+            document.querySelector('#MeterRes').value=m;
+            document.querySelector('#KilometerRes').value=km;
+            document.querySelector('#CentimeterRes').value=cm;
+            document.querySelector('#MillimeterRes').value=mm;
+            document.querySelector('#MicrometerRes').value=microm;
+            document.querySelector('#NanometerRes').value=nm;
+            document.querySelector('#MileRes').value=mi;
+            document.querySelector('#YardRes').value=yd;
+            document.querySelector('#FootRes').value=ft;
+            document.querySelector('#InchRes').value=inch;
+
+            
+        }
+
+        function ToInch() {
+
+            const inch = input.value;
+            const km =  0.0000254*inch;
+            const m = 0.0254*inch;
+            const cm = 2.54*inch;
+            const mm = 25.4*inch;
+            const microm = 25400*inch;
+            const nm = 25400000*inch;
+            const ft = 0.0833333*inch;
+            const mi = 0.0000157828*inch;
+            const yd = 0.0277778*inch;
+
+
+            if(resType.value === "Meter")
+                result.value=m;
+            else if(resType.value === "Kilometer")
+                result.value=km;
+            else if(resType.value === "Millimeter")
+                result.value=mm;
+            else if(resType.value === "Micrometer")
+                result.value=microm;
+            else if(resType.value === "Nanometer")
+                result.value=nm;
+            else if(resType.value === "Centimeter")
+                result.value=cm;
+            else if(resType.value === "Mile")
+                result.value=mi;
+            else if(resType.value === "Yard")
+                result.value=yd;
+            else if(resType.value === "Foot")
+                result.value=ft;
+            else if(resType.value === "Inch")
+                result.value=inch;
+
+            document.querySelector('#MeterRes').value=m;
+            document.querySelector('#KilometerRes').value=km;
+            document.querySelector('#CentimeterRes').value=cm;
+            document.querySelector('#MillimeterRes').value=mm;
+            document.querySelector('#MicrometerRes').value=microm;
+            document.querySelector('#NanometerRes').value=nm;
+            document.querySelector('#MileRes').value=mi;
+            document.querySelector('#YardRes').value=yd;
+            document.querySelector('#FootRes').value=ft;
+            document.querySelector('#InchRes').value=inch;
+
+        }
+
+        function myResult() {
+            
+            inputTypeValue = inpType.value;
+            resultTypeValue = resType.value;
+
+            //Meter
+
+            if(inputTypeValue === "Meter" && resultTypeValue === "Meter")
+                ToMeter();
+            else if(inputTypeValue === "Meter" && resultTypeValue === "Kilometer")
+                ToMeter();
+            else if(inputTypeValue === "Meter" && resultTypeValue === "Millimeter")
+                ToMeter();
+            else if(inputTypeValue === "Meter" && resultTypeValue === "Centimeter")
+                ToMeter();
+            else if(inputTypeValue === "Meter" && resultTypeValue === "Micrometer")
+                ToMeter();
+            else if(inputTypeValue === "Meter" && resultTypeValue === "Nanometer")
+                ToMeter();
+            else if(inputTypeValue === "Meter" && resultTypeValue === "Foot")
+                ToMeter();
+            else if(inputTypeValue === "Meter" && resultTypeValue === "Mile")
+                ToMeter();
+            else if(inputTypeValue === "Meter" && resultTypeValue === "Inch")
+                ToMeter();
+            else if(inputTypeValue === "Meter" && resultTypeValue === "Yard")
+                ToMeter();
+
+            //Kilometer
+
+            if(inputTypeValue === "Kilometer" && resultTypeValue === "Kilometer")
+                ToKilometer();
+            else if(inputTypeValue === "Kilometer" && resultTypeValue === "Meter")
+                ToKilometer();
+            else if(inputTypeValue === "Kilometer" && resultTypeValue === "Millimeter")
+                ToKilometer();
+            else if(inputTypeValue === "Kilometer" && resultTypeValue === "Centimeter")
+                ToKilometer();
+            else if(inputTypeValue === "Kilometer" && resultTypeValue === "Micrometer")
+                ToKilometer();
+            else if(inputTypeValue === "Kilometer" && resultTypeValue === "Nanometer")
+                ToKilometer();
+            else if(inputTypeValue === "Kilometer" && resultTypeValue === "Foot")
+                ToKilometer();
+            else if(inputTypeValue === "Kilometer" && resultTypeValue === "Mile")
+                ToKilometer();
+            else if(inputTypeValue === "Kilometer" && resultTypeValue === "Inch")
+                ToKilometer();
+            else if(inputTypeValue === "Kilometer" && resultTypeValue === "Yard")
+                ToKilometer();
+
+            //Centimeter
+
+            if(inputTypeValue === "Centimeter" && resultTypeValue === "Centimeter")
+                ToCentimeter();
+            else if(inputTypeValue === "Centimeter" && resultTypeValue === "Meter")
+                ToCentimeter();
+            else if(inputTypeValue === "Centimeter" && resultTypeValue === "Millimeter")
+                ToCentimeter();
+            else if(inputTypeValue === "Centimeter" && resultTypeValue === "Kilometer")
+                ToCentimeter();
+            else if(inputTypeValue === "Centimeter" && resultTypeValue === "Micrometer")
+                ToCentimeter();
+            else if(inputTypeValue === "Centimeter" && resultTypeValue === "Nanometer")
+                ToCentimeter();
+            else if(inputTypeValue === "Centimeter" && resultTypeValue === "Foot")
+                ToCentimeter();
+            else if(inputTypeValue === "Centimeter" && resultTypeValue === "Mile")
+                ToCentimeter();
+            else if(inputTypeValue === "Centimeter" && resultTypeValue === "Inch")
+                ToCentimeter();
+            else if(inputTypeValue === "Centimeter" && resultTypeValue === "Yard")
+                ToCentimeter();
+
+            //Milimeter
+
+            if(inputTypeValue === "Millimeter" && resultTypeValue === "Millimeter")
+                ToMillimeter();
+            else if(inputTypeValue === "Millimeter" && resultTypeValue === "Meter")
+                ToMillimeter();
+            else if(inputTypeValue === "Millimeter" && resultTypeValue === "Centimeter")
+                ToMillimeter();
+            else if(inputTypeValue === "Millimeter" && resultTypeValue === "Kilometer")
+                ToMillimeter();
+            else if(inputTypeValue === "Millimeter" && resultTypeValue === "Micrometer")
+                ToMillimeter();
+            else if(inputTypeValue === "Millimeter" && resultTypeValue === "Nanometer")
+                ToMillimeter();
+            else if(inputTypeValue === "Millimeter" && resultTypeValue === "Foot")
+                ToMillimeter();
+            else if(inputTypeValue === "Millimeter" && resultTypeValue === "Mile")
+                ToMillimeter();
+            else if(inputTypeValue === "Millimeter" && resultTypeValue === "Inch")
+                ToMillimeter();
+            else if(inputTypeValue === "Millimeter" && resultTypeValue === "Yard")
+                ToMillimeter();
+
+            //Micrometer
+
+            if(inputTypeValue === "Micrometer" && resultTypeValue === "Micrometer")
+                ToMicrometer();
+            else if(inputTypeValue === "Micrometer" && resultTypeValue === "Meter")
+                ToMicrometer();
+            else if(inputTypeValue === "Micrometer" && resultTypeValue === "Centimeter")
+                ToMicrometer();
+            else if(inputTypeValue === "Micrometer" && resultTypeValue === "Kilometer")
+                ToMicrometer();
+            else if(inputTypeValue === "Micrometer" && resultTypeValue === "Millimeter")
+                ToMicrometer();
+            else if(inputTypeValue === "Micrometer" && resultTypeValue === "Nanometer")
+                ToMicrometer();
+            else if(inputTypeValue === "Micrometer" && resultTypeValue === "Foot")
+                ToMicrometer();
+            else if(inputTypeValue === "Micrometer" && resultTypeValue === "Mile")
+                ToMicrometer();
+            else if(inputTypeValue === "Micrometer" && resultTypeValue === "Inch")
+                ToMicrometer();
+            else if(inputTypeValue === "Micrometer" && resultTypeValue === "Yard")
+                ToMicrometer();
+            
+            //Nanometer
+
+            if(inputTypeValue === "Nanometer" && resultTypeValue === "Nanometer")
+                ToNanometer();
+            else if(inputTypeValue === "Nanometer" && resultTypeValue === "Meter")
+                ToNanometer();
+            else if(inputTypeValue === "Nanometer" && resultTypeValue === "Centimeter")
+                ToNanometer();
+            else if(inputTypeValue === "Nanometer" && resultTypeValue === "Kilometer")
+                ToNanometer();
+            else if(inputTypeValue === "Nanometer" && resultTypeValue === "Millimeter")
+                ToNanometer();
+            else if(inputTypeValue === "Nanometer" && resultTypeValue === "Micrometer")
+                ToNanometer();
+            else if(inputTypeValue === "Nanometer" && resultTypeValue === "Foot")
+                ToNanometer();
+            else if(inputTypeValue === "Nanometer" && resultTypeValue === "Mile")
+                ToNanometer();
+            else if(inputTypeValue === "Nanometer" && resultTypeValue === "Inch")
+                ToNanometer();
+            else if(inputTypeValue === "Nanometer" && resultTypeValue === "Yard")
+                ToNanometer();
+            
+            //Mile
+
+            if(inputTypeValue === "Mile" && resultTypeValue === "Mile")
+                ToMile();
+            else if(inputTypeValue === "Mile" && resultTypeValue === "Meter")
+                ToMile();
+            else if(inputTypeValue === "Mile" && resultTypeValue === "Centimeter")
+                ToMile();
+            else if(inputTypeValue === "Mile" && resultTypeValue === "Kilometer")
+                ToMile();
+            else if(inputTypeValue === "Mile" && resultTypeValue === "Millimeter")
+                ToMile();
+            else if(inputTypeValue === "Mile" && resultTypeValue === "Micrometer")
+                ToMile();
+            else if(inputTypeValue === "Mile" && resultTypeValue === "Foot")
+                ToMile();
+            else if(inputTypeValue === "Mile" && resultTypeValue === "Nanometer")
+                ToMile();
+            else if(inputTypeValue === "Mile" && resultTypeValue === "Inch")
+                ToMile();
+            else if(inputTypeValue === "Mile" && resultTypeValue === "Yard")
+                ToMile();
+
+            //Yard 
+
+            if(inputTypeValue === "Yard" && resultTypeValue === "Yard")
+                ToYard();
+            else if(inputTypeValue === "Yard" && resultTypeValue === "Meter")
+                ToYard();
+            else if(inputTypeValue === "Yard" && resultTypeValue === "Centimeter")
+                ToYard();
+            else if(inputTypeValue === "Yard" && resultTypeValue === "Kilometer")
+                ToYard();
+            else if(inputTypeValue === "Yard" && resultTypeValue === "Millimeter")
+                ToYard();
+            else if(inputTypeValue === "Yard" && resultTypeValue === "Micrometer")
+                ToYard();
+            else if(inputTypeValue === "Yard" && resultTypeValue === "Foot")
+                ToYard();
+            else if(inputTypeValue === "Yard" && resultTypeValue === "Nanometer")
+                ToYard();
+            else if(inputTypeValue === "Yard" && resultTypeValue === "Inch")
+                ToYard();
+            else if(inputTypeValue === "Yard" && resultTypeValue === "Mile")
+                ToYard();
+
+            //Foot
+
+            if(inputTypeValue === "Foot" && resultTypeValue === "Foot")
+                ToFoot();
+            else if(inputTypeValue === "Foot" && resultTypeValue === "Meter")
+                ToFoot();
+            else if(inputTypeValue === "Foot" && resultTypeValue === "Centimeter")
+                ToFoot();
+            else if(inputTypeValue === "Foot" && resultTypeValue === "Kilometer")
+                ToFoot();
+            else if(inputTypeValue === "Foot" && resultTypeValue === "Millimeter")
+                ToFoot();
+            else if(inputTypeValue === "Foot" && resultTypeValue === "Micrometer")
+                ToFoot();
+            else if(inputTypeValue === "Foot" && resultTypeValue === "Yard")
+                ToFoot();
+            else if(inputTypeValue === "Foot" && resultTypeValue === "Nanometer")
+                ToFoot();
+            else if(inputTypeValue === "Foot" && resultTypeValue === "Inch")
+                ToFoot();
+            else if(inputTypeValue === "Foot" && resultTypeValue === "Mile")
+                ToFoot();
+
+            //Inch
+
+            if(inputTypeValue === "Inch" && resultTypeValue === "Inch")
+                ToInch();
+            else if(inputTypeValue === "Inch" && resultTypeValue === "Meter")
+                ToInch();
+            else if(inputTypeValue === "Inch" && resultTypeValue === "Centimeter")
+                ToInch();
+            else if(inputTypeValue === "Inch" && resultTypeValue === "Kilometer")
+                ToInch();
+            else if(inputTypeValue === "Inch" && resultTypeValue === "Millimeter")
+                ToInch();
+            else if(inputTypeValue === "Inch" && resultTypeValue === "Micrometer")
+                ToInch();
+            else if(inputTypeValue === "Inch" && resultTypeValue === "Yard")
+                ToInch();
+            else if(inputTypeValue === "Inch" && resultTypeValue === "Nanometer")
+                ToInch();
+            else if(inputTypeValue === "Inch" && resultTypeValue === "Foot")
+                ToInch();
+            else if(inputTypeValue === "Inch" && resultTypeValue === "Mile")
+                ToInch();
+
+        }
+        
+        const input = document.querySelector('#input');
+        const result = document.querySelector('#output');
+        const inpType = document.querySelector('#inputType');
+        const resType = document.querySelector('#resultType');
+
+        let inputTypeValue,resultTypeValue;
+
+        inputTypeValue = inpType.value;
+        resultTypeValue = resType.value;
+
+        input.addEventListener('keyup', myResult);
+        inpType.addEventListener('change', myResult);
+        resType.addEventListener('change', myResult);
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fliud">
+            <div class="navbar-header">
+                <a href="" class="navbar-brand">Unit Converter <i class="fas fa-tools" style="color: grey;"></i></a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href ="index.html">Length</a></li>
+                <li><a href ="temperature.html">Temperature</a></li>
+                <li><a href ="weight.html">Weight</a></li>
+                <li class="active"><a href ="time.html">Time</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    
+    <div class="container">
+        <div>
+            <h3 style="margin: 2rem;">Time Converter</h3>
+        </div>
+
+        <div class="container-block">
+            <div class="container-to">
+                <div class="form-group"style="display: flex; flex-direction: column;">
+                    <label for="input">To</label>
+                    <input type="number" id='input' placeholder="Enter the value">
+
+                    <select name="inputType" id="inputType">
+                        <option value="Second">Second</option>
+                        <option value="Millisecond">Millisecond</option>
+                        <option value="Microsecond">Microsecond</option>
+                        <option value="Nanosecond">Nanosecond</option>
+                        <option value="Minute">Minute</option>
+                        <option value="Hour">Hour</option>
+                        <option value="Day">Day</option>
+                        <option value="Week">Week</option>
+                        <option value="Month">Month</option>
+                        <option value="Year">Year</option>
+                    </select>
+                </div>
+
+                <!--div class="form-group">
+                    <div class="unit-box">
+                            <input type="button" value="Second" id="meterBtn">
+                            <input type="button" value="Millisecond" id="meterBtn">
+                            <input type="button" value="Microsecond" id="meterBtn">
+                            <input type="button" value="Nanosecond" id="meterBtn">
+                            <input type="button" value="Picosecond" id="meterBtn">
+                            <input type="button" value="Minute" id="meterBtn">
+                            <input type="button" value="Hour" id="meterBtn">
+                            <input type="button" value="Week" id="meterBtn">
+                            <input type="button" value="Month" id="meterBtn">
+                            <input type="button" value="Year" id="meterBtn">
+                    </div>
+                </div-->
+
+            </div>
+
+            <div class="container-from">
+                <div class="form-group"style="display: flex; flex-direction: column;">
+                    <label for="output">From</label>
+                    <input type="number" id='output' placeholder="Result will be shown here">
+
+                    <select name="resultType" id="resultType">
+                        <option value="Second">Second</option>
+                        <option value="Millisecond">Millisecond</option>
+                        <option value="Microsecond">Microsecond</option>
+                        <option value="Nanosecond">Nanosecond</option>
+                        <option value="Minute">Minute</option>
+                        <option value="Hour">Hour</option>
+                        <option value="Day">Day</option>
+                        <option value="Week">Week</option>
+                        <option value="Month">Month</option>
+                        <option value="Year">Year</option>
+                    </select>
+
+                </div>
+
+                <!--div class="form-group">
+                    <div class="unit-box">
+                        <input type="button" value="Second" id="meterBtn">
+                        <input type="button" value="Millisecond" id="meterBtn">
+                        <input type="button" value="Microsecond" id="meterBtn">
+                        <input type="button" value="Nanosecond" id="meterBtn">
+                        <input type="button" value="Picosecond" id="meterBtn">
+                        <input type="button" value="Minute" id="meterBtn">
+                        <input type="button" value="Hour" id="meterBtn">
+                        <input type="button" value="Week" id="meterBtn">
+                        <input type="button" value="Month" id="meterBtn">
+                        <input type="button" value="Year" id="meterBtn">
+                        
+                    </div>
+                </div-->
+
+            </div>
+
+        </div>
+        
+        <div><h3>Results: </h3></div>
+
+
+        <div class="container-block">
+            
+           <div class="container-left " style ="margin: 2rem;">
+
+                <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                    <label for="NanosecondRes">Nanosecond[ns]: </label>
+                    <input type="text"  id="NanosecondRes">
+                </div>
+                <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                    <label for="MicrosecondRes">Microsecond[<span>&#181;</span>s]: </label>
+                    <input type="text"  id="MicrosecondRes">
+                </div>
+                <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                    <label for="MillisecondRes">Millisecond[ms]: </label>
+                    <input type="text"  id="MillisecondRes">
+                </div>
+
+                <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                    <label for="SecondRes">Second[s]: </label>
+                    <input type="text"  id="SecondRes">
+                </div>
+
+                <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                    <label for="MinuteRes">Minute[min]: </label>
+                    <input type="text"  id="MinuteRes">
+                </div>
+
+           </div>
+
+
+           <div class="container-right" style ="margin: 2rem;">
+
+
+                <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                    <label for="HourRes">Hour[h]: </label>
+                    <input type="text"  id="HourRes">
+                </div>
+                <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                    <label for="DayRes">Day[d]: </label>
+                    <input type="text"  id="DayRes">
+                </div>
+                <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                    <label for="WeekRes">Week: </label>
+                    <input type="text"  id="WeekRes">
+                </div>
+                <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                    <label for="MonthRes">Month: </label>
+                    <input type="text"  id="MonthRes">
+                </div>
+
+                <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                    <label for="YearRes">Year[y]: </label>
+                    <input type="text"  id="YearRes">
+                </div>
+
+           </div>
+
+
+        </div>
+
+
+       
+    </div>
+
+    <script>
+        
+        function ToSecond() {
+            const s = input.value;
+            const ms = 0.001 * s;
+            const ns  = 1000000000 *s
+            const ps = 1000000000000 *s;
+            const micros = 1000000 *s;
+            const min = 0.0166666667 *s;
+            const hour = 0.00027777777*s;
+            const day = (s/86400);
+            const week = (s/ 604800);
+            const month = 0.000002628 *s;
+            const year = 0.0000000317098 * s;
+
+            if(resType.value === "Second")
+                result.value=s;
+            else if(resType.value === "Millisecond")
+                result.value=ms;
+            else if(resType.value === "Microsecond")
+                result.value=micros;
+            else if(resType.value === "Nanosecond")
+                result.value=ns;
+            else if(resType.value === "Picosecond")
+                result.value=ps;
+            else if(resType.value === "Minute")
+                result.value=min;
+            else if(resType.value === "Hour")
+                result.value=hour;
+            else if(resType.value === "Day")
+                result.value=day;
+            else if(resType.value === "Week")
+                result.value=week;
+            else if(resType.value === "Month")
+                result.value=month;
+            else if(resType.value === "Year")
+                result.value=year;
+
+
+            document.querySelector('#SecondRes').value = s;
+            document.querySelector('#MillisecondRes').value = ms;
+            document.querySelector('#MicrosecondRes').value = micros;
+            document.querySelector('#NanosecondRes').value = ns;
+            document.querySelector('#MinuteRes').value = min;
+            document.querySelector('#HourRes').value = hour;
+            document.querySelector('#DayRes').value = day;
+            document.querySelector('#WeekRes').value = week;
+            document.querySelector('#MonthRes').value = month;
+            document.querySelector('#YearRes').value = year;
+
+        }
+
+        function ToNanosecond() {
+
+            const ns = input.value;
+            const s = 0.000000001 * ns;
+            const ms = 0.000001 * ns;
+            const micros = 0.001 *ns;
+            const min =  0.0000000000166667 * ns;
+            const hour = 0.000000000000277778 * ns;
+            const day =  0.0000000000000115741 *ns;
+            const week =  0.00000000000000165344 * ns;
+            const month = 0.000000000000000380517 *ns;
+            const year = 0.0000000000000000317098 * ns;
+
+            if(resType.value === "Second")
+                result.value=s;
+            else if(resType.value === "Millisecond")
+                result.value=ms;
+            else if(resType.value === "Microsecond")
+                result.value=micros;
+            else if(resType.value === "Nanosecond")
+                result.value=ns;
+            else if(resType.value === "Picosecond")
+                result.value=ps;
+            else if(resType.value === "Minute")
+                result.value=min;
+            else if(resType.value === "Hour")
+                result.value=hour;
+            else if(resType.value === "Day")
+                result.value=day;
+            else if(resType.value === "Week")
+                result.value=week;
+            else if(resType.value === "Month")
+                result.value=month;
+            else if(resType.value === "Year")
+                result.value=year;
+
+
+            document.querySelector('#SecondRes').value = s;
+            document.querySelector('#MillisecondRes').value = ms;
+            document.querySelector('#MicrosecondRes').value = micros;
+            document.querySelector('#NanosecondRes').value = ns;
+            document.querySelector('#MinuteRes').value = min;
+            document.querySelector('#HourRes').value = hour;
+            document.querySelector('#DayRes').value = day;
+            document.querySelector('#WeekRes').value = week;
+            document.querySelector('#MonthRes').value = month;
+            document.querySelector('#YearRes').value = year;
+
+
+        }
+
+        function ToMillisecond() {
+            const ms = input.value;
+            const s = 0.001 *ms;
+            const micros = 1000 *ms;
+            const ns = 1000000 * ms;
+            const min = 0.0000166667 *ms;
+            const hour = 0.000000277778 * ms;
+            const day = 0.0000000115741 *ms;
+            const week = 0.00000000165344 * ms;
+            const month = 0.000000000380517 *ms;
+            const year =  0.0000000000317098 *ms;
+
+
+            if(resType.value === "Second")
+                result.value=s;
+            else if(resType.value === "Millisecond")
+                result.value=ms;
+            else if(resType.value === "Microsecond")
+                result.value=micros;
+            else if(resType.value === "Nanosecond")
+                result.value=ns;
+            else if(resType.value === "Picosecond")
+                result.value=ps;
+            else if(resType.value === "Minute")
+                result.value=min;
+            else if(resType.value === "Hour")
+                result.value=hour;
+            else if(resType.value === "Day")
+                result.value=day;
+            else if(resType.value === "Week")
+                result.value=week;
+            else if(resType.value === "Month")
+                result.value=month;
+            else if(resType.value === "Year")
+                result.value=year;
+
+
+            document.querySelector('#SecondRes').value = s;
+            document.querySelector('#MillisecondRes').value = ms;
+            document.querySelector('#MicrosecondRes').value = micros;
+            document.querySelector('#NanosecondRes').value = ns;
+            document.querySelector('#MinuteRes').value = min;
+            document.querySelector('#HourRes').value = hour;
+            document.querySelector('#DayRes').value = day;
+            document.querySelector('#WeekRes').value = week;
+            document.querySelector('#MonthRes').value = month;
+            document.querySelector('#YearRes').value = year;
+
+        }
+
+        function ToMicrosecond(){
+            const micros = input.value;
+            const ms = 0.001 *micros;
+            const ns = 1000*micros;
+            const s =  0.000001 * micros;
+            const min =  0.0000000166667 * micros;
+            const hour = 0.000000000277778 * micros;
+            const day = 0.0000000000115741 *micros;
+            const week = 0.00000000000165344 *micros;
+            const month = 0.000000000000380517*micros;
+            const year =  0.0000000000000317098 *micros;
+
+
+
+            if(resType.value === "Second")
+                result.value=s;
+            else if(resType.value === "Millisecond")
+                result.value=ms;
+            else if(resType.value === "Microsecond")
+                result.value=micros;
+            else if(resType.value === "Nanosecond")
+                result.value=ns;
+            else if(resType.value === "Picosecond")
+                result.value=ps;
+            else if(resType.value === "Minute")
+                result.value=min;
+            else if(resType.value === "Hour")
+                result.value=hour;
+            else if(resType.value === "Day")
+                result.value=day;
+            else if(resType.value === "Week")
+                result.value=week;
+            else if(resType.value === "Month")
+                result.value=month;
+            else if(resType.value === "Year")
+                result.value=year;
+
+
+            document.querySelector('#SecondRes').value = s;
+            document.querySelector('#MillisecondRes').value = ms;
+            document.querySelector('#MicrosecondRes').value = micros;
+            document.querySelector('#NanosecondRes').value = ns;
+            document.querySelector('#MinuteRes').value = min;
+            document.querySelector('#HourRes').value = hour;
+            document.querySelector('#DayRes').value = day;
+            document.querySelector('#WeekRes').value = week;
+            document.querySelector('#MonthRes').value = month;
+            document.querySelector('#YearRes').value = year;
+
+
+        }
+
+        function ToMinute() {
+
+            const min = input.value;
+            const ms = 60000 *min;
+            const micros = 60000000 * min;
+            const s = 60 *min;
+            const ns = 60000000000 * min;
+            const hour = 0.0166667 *min;
+            const day = 0.000694444 *min;
+            const week = 0.0000992063 *min;
+            const month = 0.000022831 * min;
+            const year = 0.00000190259 * min;
+
+
+            if(resType.value === "Second")
+                result.value=s;
+            else if(resType.value === "Millisecond")
+                result.value=ms;
+            else if(resType.value === "Microsecond")
+                result.value=micros;
+            else if(resType.value === "Nanosecond")
+                result.value=ns;
+            else if(resType.value === "Picosecond")
+                result.value=ps;
+            else if(resType.value === "Minute")
+                result.value=min;
+            else if(resType.value === "Hour")
+                result.value=hour;
+            else if(resType.value === "Day")
+                result.value=day;
+            else if(resType.value === "Week")
+                result.value=week;
+            else if(resType.value === "Month")
+                result.value=month;
+            else if(resType.value === "Year")
+                result.value=year;
+
+
+            document.querySelector('#SecondRes').value = s;
+            document.querySelector('#MillisecondRes').value = ms;
+            document.querySelector('#MicrosecondRes').value = micros;
+            document.querySelector('#NanosecondRes').value = ns;
+            document.querySelector('#MinuteRes').value = min;
+            document.querySelector('#HourRes').value = hour;
+            document.querySelector('#DayRes').value = day;
+            document.querySelector('#WeekRes').value = week;
+            document.querySelector('#MonthRes').value = month;
+            document.querySelector('#YearRes').value = year;
+
+
+        }
+
+        function ToHour() {
+
+            const hour = input.value;
+            const ms =  3600000 *hour;
+            const ns = 3600000000000 * hour;
+            const s = 3600 *hour;
+            const micros = 3600000000 *hour;
+            const min = 60 * hour;
+            const day = 0.0416667 *hour;
+            const week = 0.00595238 *hour;
+            const month = 0.00136986 * hour;
+            const year = 0.000114155 * hour;
+
+            if(resType.value === "Second")
+                result.value=s;
+            else if(resType.value === "Millisecond")
+                result.value=ms;
+            else if(resType.value === "Microsecond")
+                result.value=micros;
+            else if(resType.value === "Nanosecond")
+                result.value=ns;
+            else if(resType.value === "Picosecond")
+                result.value=ps;
+            else if(resType.value === "Minute")
+                result.value=min;
+            else if(resType.value === "Hour")
+                result.value=hour;
+            else if(resType.value === "Day")
+                result.value=day;
+            else if(resType.value === "Week")
+                result.value=week;
+            else if(resType.value === "Month")
+                result.value=month;
+            else if(resType.value === "Year")
+                result.value=year;
+
+
+            document.querySelector('#SecondRes').value = s;
+            document.querySelector('#MillisecondRes').value = ms;
+            document.querySelector('#MicrosecondRes').value = micros;
+            document.querySelector('#NanosecondRes').value = ns;
+            document.querySelector('#MinuteRes').value = min;
+            document.querySelector('#HourRes').value = hour;
+            document.querySelector('#DayRes').value = day;
+            document.querySelector('#WeekRes').value = week;
+            document.querySelector('#MonthRes').value = month;
+            document.querySelector('#YearRes').value = year;
+
+        }
+
+        function ToDay() {
+
+            const day = input.value;
+            const ms =  86400000*day;
+            const micros = 86400000000*day;
+            const ns = 86400000000000 * day;
+            const s = 86400 *day;
+            const min = 1440 *day;
+            const hour = 24 *day;
+            const week = 0.142857 * day;
+            const month = 0.0328767 *day;
+            const year = 0.00273973 *day;
+
+
+
+            if(resType.value === "Second")
+                result.value=s;
+            else if(resType.value === "Millisecond")
+                result.value=ms;
+            else if(resType.value === "Microsecond")
+                result.value=micros;
+            else if(resType.value === "Nanosecond")
+                result.value=ns;
+            else if(resType.value === "Picosecond")
+                result.value=ps;
+            else if(resType.value === "Minute")
+                result.value=min;
+            else if(resType.value === "Hour")
+                result.value=hour;
+            else if(resType.value === "Day")
+                result.value=day;
+            else if(resType.value === "Week")
+                result.value=week;
+            else if(resType.value === "Month")
+                result.value=month;
+            else if(resType.value === "Year")
+                result.value=year;
+
+
+            document.querySelector('#SecondRes').value = s;
+            document.querySelector('#MillisecondRes').value = ms;
+            document.querySelector('#MicrosecondRes').value = micros;
+            document.querySelector('#NanosecondRes').value = ns;
+            document.querySelector('#MinuteRes').value = min;
+            document.querySelector('#HourRes').value = hour;
+            document.querySelector('#DayRes').value = day;
+            document.querySelector('#WeekRes').value = week;
+            document.querySelector('#MonthRes').value = month;
+            document.querySelector('#YearRes').value = year;
+
+        }
+
+        function ToWeek(){
+
+            const week = input.value;
+            const ms = 604800000 *week;
+            const micros = 604800000000*week;
+            const ns =  604800000000000 *week;
+            const s = 604800*week;
+            const min = 10080 *week;
+            const hour = 168 *week;
+            const day = 7*week;
+            const month = 0.230137*week;
+            const year = 0.0191781 *week;
+
+
+            if(resType.value === "Second")
+                result.value=s;
+            else if(resType.value === "Millisecond")
+                result.value=ms;
+            else if(resType.value === "Microsecond")
+                result.value=micros;
+            else if(resType.value === "Nanosecond")
+                result.value=ns;
+            else if(resType.value === "Picosecond")
+                result.value=ps;
+            else if(resType.value === "Minute")
+                result.value=min;
+            else if(resType.value === "Hour")
+                result.value=hour;
+            else if(resType.value === "Day")
+                result.value=day;
+            else if(resType.value === "Week")
+                result.value=week;
+            else if(resType.value === "Month")
+                result.value=month;
+            else if(resType.value === "Year")
+                result.value=year;
+
+
+            document.querySelector('#SecondRes').value = s;
+            document.querySelector('#MillisecondRes').value = ms;
+            document.querySelector('#MicrosecondRes').value = micros;
+            document.querySelector('#NanosecondRes').value = ns;
+            document.querySelector('#MinuteRes').value = min;
+            document.querySelector('#HourRes').value = hour;
+            document.querySelector('#DayRes').value = day;
+            document.querySelector('#WeekRes').value = week;
+            document.querySelector('#MonthRes').value = month;
+            document.querySelector('#YearRes').value = year;
+
+        }
+
+        function ToMonth(){
+
+            const month = input.value;
+            const ms = 2628000000*month;
+            const micros = 2628000000000 *month;
+            const ns = 2628000000000000 *month;
+            const s = 2628000 *month;
+            const min = 43800 *month;
+            const day = 30.4167 *month;
+            const week = 4.34524 *month;
+            const year = 0.0833334 *month;
+
+
+            if(resType.value === "Second")
+                result.value=s;
+            else if(resType.value === "Millisecond")
+                result.value=ms;
+            else if(resType.value === "Microsecond")
+                result.value=micros;
+            else if(resType.value === "Nanosecond")
+                result.value=ns;
+            else if(resType.value === "Picosecond")
+                result.value=ps;
+            else if(resType.value === "Minute")
+                result.value=min;
+            else if(resType.value === "Hour")
+                result.value=hour;
+            else if(resType.value === "Day")
+                result.value=day;
+            else if(resType.value === "Week")
+                result.value=week;
+            else if(resType.value === "Month")
+                result.value=month;
+            else if(resType.value === "Year")
+                result.value=year;
+
+
+            document.querySelector('#SecondRes').value = s;
+            document.querySelector('#MillisecondRes').value = ms;
+            document.querySelector('#MicrosecondRes').value = micros;
+            document.querySelector('#NanosecondRes').value = ns;
+            document.querySelector('#MinuteRes').value = min;
+            document.querySelector('#HourRes').value = hour;
+            document.querySelector('#DayRes').value = day;
+            document.querySelector('#WeekRes').value = week;
+            document.querySelector('#MonthRes').value = month;
+            document.querySelector('#YearRes').value = year;
+
+
+
+        }
+
+        function ToYear() {
+
+            const year = input.value;
+            const ms = 31540000000*year;
+            const ns = 31540000000000000 *year;
+            const micros = 31540000000000*year;
+            const s = 31540000 *year;
+            const min = 525600 *year;
+            const hour = 8760*year;
+            const day = 365 *year;
+            const week = 52.1429*year;
+            const month = 12*year;
+
+
+            if(resType.value === "Second")
+                result.value=s;
+            else if(resType.value === "Millisecond")
+                result.value=ms;
+            else if(resType.value === "Microsecond")
+                result.value=micros;
+            else if(resType.value === "Nanosecond")
+                result.value=ns;
+            else if(resType.value === "Picosecond")
+                result.value=ps;
+            else if(resType.value === "Minute")
+                result.value=min;
+            else if(resType.value === "Hour")
+                result.value=hour;
+            else if(resType.value === "Day")
+                result.value=day;
+            else if(resType.value === "Week")
+                result.value=week;
+            else if(resType.value === "Month")
+                result.value=month;
+            else if(resType.value === "Year")
+                result.value=year;
+
+
+            document.querySelector('#SecondRes').value = s;
+            document.querySelector('#MillisecondRes').value = ms;
+            document.querySelector('#MicrosecondRes').value = micros;
+            document.querySelector('#NanosecondRes').value = ns;
+            document.querySelector('#MinuteRes').value = min;
+            document.querySelector('#HourRes').value = hour;
+            document.querySelector('#DayRes').value = day;
+            document.querySelector('#WeekRes').value = week;
+            document.querySelector('#MonthRes').value = month;
+            document.querySelector('#YearRes').value = year;
+
+        }
+
+
+
+
+        function myResult(){
+
+            inputTypeValue = inpType.value;
+            resultTypeValue = resType.value;
+
+            //Second
+
+            if(inputTypeValue === "Second" && resultTypeValue === "Second")
+                ToSecond();
+            else if(inputTypeValue === "Second" && resultTypeValue === "Millisecond")
+                ToSecond();
+            else if(inputTypeValue === "Second" && resultTypeValue === "Microsecond")
+                ToSecond();
+            else if(inputTypeValue === "Second" && resultTypeValue === "Nanosecond")
+                ToSecond();
+            else if(inputTypeValue === "Second" && resultTypeValue === "Minute")
+                ToSecond();
+            else if(inputTypeValue === "Second" && resultTypeValue === "Day")
+                ToSecond();
+            else if(inputTypeValue === "Second" && resultTypeValue === "Hour")
+                ToSecond();
+            else if(inputTypeValue === "Second" && resultTypeValue === "Week")
+                ToSecond();
+            else if(inputTypeValue === "Second" && resultTypeValue === "Month")
+                ToSecond();
+            else if(inputTypeValue === "Second" && resultTypeValue === "Year")
+                ToSecond();
+
+            //Nanosecond
+
+            if(inputTypeValue === "Nanosecond" && resultTypeValue === "Nanosecond")
+                ToNanosecond();
+            else if(inputTypeValue === "Nanosecond" && resultTypeValue === "Millisecond")
+                ToNanosecond();
+            else if(inputTypeValue === "Nanosecond" && resultTypeValue === "Microsecond")
+                ToNanosecond();
+            else if(inputTypeValue === "Nanosecond" && resultTypeValue === "Second")
+                ToNanosecond();
+            else if(inputTypeValue === "Nanosecond" && resultTypeValue === "Minute")
+                ToNanosecond();
+            else if(inputTypeValue === "Nanosecond" && resultTypeValue === "Day")
+                ToNanosecond();
+            else if(inputTypeValue === "Nanosecond" && resultTypeValue === "Hour")
+                ToNanosecond();
+            else if(inputTypeValue === "Nanosecond" && resultTypeValue === "Week")
+                ToNanosecond();
+            else if(inputTypeValue === "Nanosecond" && resultTypeValue === "Month")
+                ToNanosecond();
+            else if(inputTypeValue === "Nanosecond" && resultTypeValue === "Year")
+                ToNanosecond();
+
+            //Millisecond
+
+            if(inputTypeValue === "Millisecond" && resultTypeValue === "Millisecond")
+                ToMillisecond();
+            else if(inputTypeValue === "Millisecond" && resultTypeValue === "Nanosecond")
+                ToMillisecond();
+            else if(inputTypeValue === "Millisecond" && resultTypeValue === "Microsecond")
+                ToMillisecond();
+            else if(inputTypeValue === "Millisecond" && resultTypeValue === "Second")
+                ToMillisecond();
+            else if(inputTypeValue === "Millisecond" && resultTypeValue === "Minute")
+                ToMillisecond();
+            else if(inputTypeValue === "Millisecond" && resultTypeValue === "Day")
+                ToMillisecond();
+            else if(inputTypeValue === "Millisecond" && resultTypeValue === "Hour")
+                ToMillisecond();
+            else if(inputTypeValue === "Millisecond" && resultTypeValue === "Week")
+                ToMillisecond();
+            else if(inputTypeValue === "Millisecond" && resultTypeValue === "Month")
+                ToMillisecond();
+            else if(inputTypeValue === "Millisecond" && resultTypeValue === "Year")
+                ToMillisecond();
+
+            //Microsecond
+
+            if(inputTypeValue === "Microsecond" && resultTypeValue === "Microsecond")
+                ToMicrosecond();
+            else if(inputTypeValue === "Microsecond" && resultTypeValue === "Nanosecond")
+                ToMicrosecond();
+            else if(inputTypeValue === "Microsecond" && resultTypeValue === "Millisecond")
+                ToMicrosecond();
+            else if(inputTypeValue === "Microsecond" && resultTypeValue === "Second")
+                ToMicrosecond();
+            else if(inputTypeValue === "Microsecond" && resultTypeValue === "Minute")
+                ToMicrosecond();
+            else if(inputTypeValue === "Microsecond" && resultTypeValue === "Day")
+                ToMicrosecond();
+            else if(inputTypeValue === "Microsecond" && resultTypeValue === "Hour")
+                ToMicrosecond();
+            else if(inputTypeValue === "Microsecond" && resultTypeValue === "Week")
+                ToMicrosecond();
+            else if(inputTypeValue === "Microsecond" && resultTypeValue === "Month")
+                ToMicrosecond();
+            else if(inputTypeValue === "Microsecond" && resultTypeValue === "Year")
+                ToMicrosecond();
+
+            //Minute
+
+            if(inputTypeValue === "Minute" && resultTypeValue === "Minute")
+                ToMinute();
+            else if(inputTypeValue === "Minute" && resultTypeValue === "Nanosecond")
+                ToMinute();
+            else if(inputTypeValue === "Minute" && resultTypeValue === "Millisecond")
+                ToMinute();
+            else if(inputTypeValue === "Minute" && resultTypeValue === "Second")
+                ToMinute();
+            else if(inputTypeValue === "Minute" && resultTypeValue === "Microsecond")
+                ToMinute();
+            else if(inputTypeValue === "Minute" && resultTypeValue === "Day")
+                ToMinute();
+            else if(inputTypeValue === "Minute" && resultTypeValue === "Hour")
+                ToMinute();
+            else if(inputTypeValue === "Minute" && resultTypeValue === "Week")
+                ToMinute();
+            else if(inputTypeValue === "Minute" && resultTypeValue === "Month")
+                ToMinute();
+            else if(inputTypeValue === "Minute" && resultTypeValue === "Year")
+                ToMinute();
+
+            //Hour
+
+            if(inputTypeValue === "Hour" && resultTypeValue === "Hour")
+                ToHour();
+            else if(inputTypeValue === "Hour" && resultTypeValue === "Nanosecond")
+                ToHour();
+            else if(inputTypeValue === "Hour" && resultTypeValue === "Millisecond")
+                ToHour();
+            else if(inputTypeValue === "Hour" && resultTypeValue === "Second")
+                ToHour();
+            else if(inputTypeValue === "Hour" && resultTypeValue === "Microsecond")
+                ToHour();
+            else if(inputTypeValue === "Hour" && resultTypeValue === "Day")
+                ToHour();
+            else if(inputTypeValue === "Hour" && resultTypeValue === "Minute")
+                ToHour();
+            else if(inputTypeValue === "Hour" && resultTypeValue === "Week")
+                ToHour();
+            else if(inputTypeValue === "Hour" && resultTypeValue === "Month")
+                ToHour();
+            else if(inputTypeValue === "Hour" && resultTypeValue === "Year")
+                ToHour();
+
+            //Day 
+
+            if(inputTypeValue === "Day" && resultTypeValue === "Day")
+                ToDay();
+            else if(inputTypeValue === "Day" && resultTypeValue === "Nanosecond")
+                ToDay();
+            else if(inputTypeValue === "Day" && resultTypeValue === "Millisecond")
+                ToDay();
+            else if(inputTypeValue === "Day" && resultTypeValue === "Second")
+                ToDay();
+            else if(inputTypeValue === "Day" && resultTypeValue === "Microsecond")
+                ToDay();
+            else if(inputTypeValue === "Day" && resultTypeValue === "Hour")
+                ToDay();
+            else if(inputTypeValue === "Day" && resultTypeValue === "Minute")
+                ToDay();
+            else if(inputTypeValue === "Day" && resultTypeValue === "Week")
+                ToDay();
+            else if(inputTypeValue === "Day" && resultTypeValue === "Month")
+                ToDay();
+            else if(inputTypeValue === "Day" && resultTypeValue === "Year")
+                ToDay();
+
+            //Week
+
+            if(inputTypeValue === "Week" && resultTypeValue === "Week")
+                ToWeek();
+            else if(inputTypeValue === "Week" && resultTypeValue === "Nanosecond")
+                ToWeek();
+            else if(inputTypeValue === "Week" && resultTypeValue === "Millisecond")
+                ToWeek();
+            else if(inputTypeValue === "Week" && resultTypeValue === "Second")
+                ToWeek();
+            else if(inputTypeValue === "Week" && resultTypeValue === "Microsecond")
+                ToWeek();
+            else if(inputTypeValue === "Week" && resultTypeValue === "Hour")
+                ToWeek();
+            else if(inputTypeValue === "Week" && resultTypeValue === "Minute")
+                ToWeek();
+            else if(inputTypeValue === "Week" && resultTypeValue === "Day")
+                ToWeek();
+            else if(inputTypeValue === "Week" && resultTypeValue === "Month")
+                ToWeek();
+            else if(inputTypeValue === "Week" && resultTypeValue === "Year")
+                ToWeek();
+
+            //Month
+
+            if(inputTypeValue === "Month" && resultTypeValue === "Month")
+                ToMonth();
+            else if(inputTypeValue === "Month" && resultTypeValue === "Nanosecond")
+                ToMonth();
+            else if(inputTypeValue === "Month" && resultTypeValue === "Millisecond")
+                ToMonth();
+            else if(inputTypeValue === "Month" && resultTypeValue === "Second")
+                ToMonth();
+            else if(inputTypeValue === "Month" && resultTypeValue === "Microsecond")
+                ToMonth();
+            else if(inputTypeValue === "Month" && resultTypeValue === "Hour")
+                ToMonth();
+            else if(inputTypeValue === "Month" && resultTypeValue === "Minute")
+                ToMonth();
+            else if(inputTypeValue === "Month" && resultTypeValue === "Day")
+                ToMonth();
+            else if(inputTypeValue === "Month" && resultTypeValue === "Week")
+                ToMonth();
+            else if(inputTypeValue === "Month" && resultTypeValue === "Year")
+                ToMonth();
+
+            //Year
+
+            if(inputTypeValue === "Year" && resultTypeValue === "Year")
+                ToYear();
+            else if(inputTypeValue === "Year" && resultTypeValue === "Nanosecond")
+                ToYear();
+            else if(inputTypeValue === "Year" && resultTypeValue === "Millisecond")
+                ToYear();
+            else if(inputTypeValue === "Year" && resultTypeValue === "Second")
+                ToYear();
+            else if(inputTypeValue === "Year" && resultTypeValue === "Microsecond")
+                ToYear();
+            else if(inputTypeValue === "Year" && resultTypeValue === "Hour")
+                ToYear();
+            else if(inputTypeValue === "Year" && resultTypeValue === "Minute")
+                ToYear();
+            else if(inputTypeValue === "Year" && resultTypeValue === "Day")
+                ToYear();
+            else if(inputTypeValue === "Year" && resultTypeValue === "Week")
+                ToYear();
+            else if(inputTypeValue === "Year" && resultTypeValue === "Month")
+                ToYear();
+
+        }
+
+        const input = document.querySelector('#input');
+        const result = document.querySelector('#output');
+        const inpType = document.querySelector('#inputType');
+        const resType = document.querySelector('#resultType');
+
+        let inputTypeValue,resultTypeValue;
+
+        inputTypeValue = inpType.value;
+        resultTypeValue = resType.value;
+
+        input.addEventListener('keyup', myResult);
+        inpType.addEventListener('change', myResult);
+        resType.addEventListener('change', myResult);
+
+
+
+
+
+    </script>
+
+</body>
+</html>

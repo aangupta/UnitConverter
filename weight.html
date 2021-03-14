@@ -10,35 +10,50 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container-fliud">
-            <div class="navbar-header">
-                <a href="" class="navbar-brand">Unit Converter <i class="fas fa-tools" style="color: grey;"></i></a>
+    <header>
+        <div class="hd-text">
+            <a style = "text-decoration: none;" href= "index.html" class = "title" > <h2>Unit Converter</h2></a>
+        </div>
+
+        <div class="topnav" id="myTopnav">
+            <a href="weight.html" class ='active'>Weight</a>
+            <a href="index.html">Length</a>
+            <a href="time.html">Time</a>
+            <a href="temperature.html">Temperature</a>
+            <a href= "https://utilityappmain.netlify.app/index.html" target="_blank" > Home</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+              <i class="fa fa-bars"></i>
+            </a>
+        </div>        
+        
+    </header>
+
+    <div class="wrapper">
+        <div class="wrapper-left">
+            <h3>Weight Converter</h3>
+            <div class="container">
+                <div class="form-group">
+                    <label for="input" class ="label">To:</label>
+                    <input type="number" id='input' placeholder="Enter the value" required>
+
+                    <select name="inputType" id="inputType" class='select'>
+                        <option value="Kilogram">Kilogram</option>
+                        <option value="Milligram">Milligram</option>
+                        <option value="Gram">Gram</option>
+                        <option value="Pound">Pound</option>
+                        <option value="Ounce">Ounce</option>
+                    </select>
+                </div>
             </div>
-            <ul class="nav navbar-nav">
-                <li><a href ="index.html">Length</a></li>
-                <li><a href ="temperature.html">Temperature</a></li>
-                <li class="active"><a href ="weight.html">Weight</a></li>
-                <li><a href ="time.html">Time</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    
-    <div class="container">
-        <div>
-            <h3 style="margin: 2rem;">Weight Converter</h3>
-        </div>
-
-        <div class="container-block">
-            <div class="container-to">
+            <div class="container">
                 <div class="form-group"style="display: flex; flex-direction: column;">
-                    <label for="input">To</label>
-                    <input type="number" id='input' placeholder="Enter the value">
+                    <label for="output" class="label">From:</label>
+                    <input type="number" id='output' placeholder="Result will be shown here" readonly>
 
-                    <select name="inputType" id="inputType">
+                    <select name="resultType" id="resultType" class='select'>
                         <option value="Kilogram">Kilogram</option>
                         <option value="Milligram">Milligram</option>
                         <option value="Gram">Gram</option>
@@ -47,56 +62,51 @@
                     </select>
                 </div>
 
-                
-
             </div>
+        </div>
+        <div class="wrapper-left">
+            <h3>Results</h3>
 
-            <div class="container-from">
-                <div class="form-group"style="display: flex; flex-direction: column;">
-                    <label for="output">From</label>
-                    <input type="number" id='output' placeholder="Result will be shown here">
-
-                    <select name="resultType" id="resultType">
-                        <option value="Kilogram">Kilogram</option>
-                        <option value="Milligram">Milligram</option>
-                        <option value="Gram">Gram</option>
-                        <option value="Pound">Pound</option>
-                        <option value="Ounce">Ounce</option>
-                    </select>
-
-                </div>
-
- 
-
+            <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                <label for="KilogramRes" class="label">Kilogram[kg]: </label>
+                <input type="text"  id="KilogramRes" readonly>
+            </div>
+            <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                <label for="MilligramRes" class ="label">Milligram[mg]: </label>
+                <input type="text"  id="MilligramRes" readonly>
+            </div>
+            <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                <label for="GramRes" class="label">Gram[g]: </label>
+                <input type="text"  id="GramRes" readonly>
+            </div>
+            <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                <label for="PoundRes" class="label">Pound[lbs]: </label>
+                <input type="text"  id="PoundRes" readonly>
+            </div>
+            <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                <label for="OunceRes" class="label">Ounce[oz]: </label>
+                <input type="text"  id="OunceRes" readonly>
             </div>
 
         </div>
-
-        <div class="container-block" style="display: flex; flex-direction: column; align-items: center;">
-            <div><h3>Results: </h3></div>
-            <div class="form-group" style="display: flex; flex-direction: column; align-items: center;">
-                <label for="KilogramRes">Kilogram[kg]: </label>
-                <input type="text"  id="KilogramRes">
-            </div>
-            <div class="form-group" style="display: flex; flex-direction: column; align-items: center;">
-                <label for="MilligramRes">Milligram[mg]: </label>
-                <input type="text"  id="MilligramRes">
-            </div>
-            <div class="form-group" style="display: flex; flex-direction: column; align-items: center;">
-                <label for="GramRes">Gram[g]: </label>
-                <input type="text"  id="GramRes">
-            </div>
-            <div class="form-group" style="display: flex; flex-direction: column; align-items: center;">
-                <label for="PoundRes">Pound[lbs]: </label>
-                <input type="text"  id="PoundRes">
-            </div>
-            <div class="form-group" style="display: flex; flex-direction: column; align-items: center;">
-                <label for="OunceRes">Ounce[oz]: </label>
-                <input type="text"  id="OunceRes">
-            </div>
-        </div>
-       
     </div>
+    
+    
+    <footer>
+        <div class="footer-text">
+            <h4>Made with <span class="fa fa-heart"></span> by Aanchal</h4>
+        </div>
+        <div class="footer-icons">
+            <ul>
+                <li> <a href="https://github.com/aangupta"class="fa fa-github"target="_blank" ></a></li>
+                <li> <a href="https://www.linkedin.com/in/aanchal-gupta-3ab35bb1/" class="fa fa-linkedin" target="_blank"></a></li>
+                <li><a href="https://twitter.com/aangupta5"class="fa fa-twitter"target="_blank"></a> </li>
+                <li> <a href="mailto: aanchalgupta457@gmail.com" class="fa fa-envelope" target="_blank"></a> </li>
+            </ul>
+            
+        </div>
+    </footer>
+
 
     <script>
 
@@ -313,6 +323,15 @@
         input.addEventListener('keyup', myResult);
         inpType.addEventListener('change', myResult);
         resType.addEventListener('change', myResult);
+
+        function myFunction() {
+                var x = document.getElementById("myTopnav");
+                if (x.className === "topnav") {
+                    x.className += " responsive";
+                } else {
+                    x.className = "topnav";
+                }
+        }
 
     </script>
     

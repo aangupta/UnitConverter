@@ -10,171 +10,139 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container-fliud">
-            <div class="navbar-header">
-                <a href="" class="navbar-brand">Unit Converter <i class="fas fa-tools" style="color: grey;"></i></a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li><a href ="index.html">Length</a></li>
-                <li><a href ="temperature.html">Temperature</a></li>
-                <li><a href ="weight.html">Weight</a></li>
-                <li class="active"><a href ="time.html">Time</a></li>
-            </ul>
+    <header>
+        <div class="hd-text">
+            <a style = "text-decoration: none;" href= "index.html" class = "title" > <h2>Unit Converter</h2></a>
         </div>
-    </nav>
+
+        <div class="topnav" id="myTopnav">
+            <a href="time.html"class ='active'>Time</a>
+            <a href="index.html">Length</a>
+            <a href="weight.html">Weight</a>
+            <a href="temperature.html">Temperature</a>
+            <a href= "https://utilityappmain.netlify.app/index.html" target="_blank" > Home</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+              <i class="fa fa-bars"></i>
+            </a>
+        </div>        
+        
+    </header>
+
+    <div class="wrapper">
+        <div class="wrapper-left">
+            <h3>Time Converter</h3>
+            <div class="container">
+                <div class="form-group">
+                    <label for="input" class ='label'>To:</label>
+                    <input type="number" id='input' placeholder="Enter the value" required>
+
+                    <select name="inputType" id="inputType" class ='select'>
+                        <option value="Second">Second</option>
+                        <option value="Millisecond">Millisecond</option>
+                        <option value="Microsecond">Microsecond</option>
+                        <option value="Nanosecond">Nanosecond</option>
+                        <option value="Minute">Minute</option>
+                        <option value="Hour">Hour</option>
+                        <option value="Day">Day</option>
+                        <option value="Week">Week</option>
+                        <option value="Month">Month</option>
+                        <option value="Year">Year</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="form-group">
+                    <label for="output" class ='label'>From:</label>
+                    <input type="number" id='output' placeholder="Result will be shown here" readonly>
+
+                    <select name="resultType" id="resultType" class ='select'>
+                        <option value="Second">Second</option>
+                        <option value="Millisecond">Millisecond</option>
+                        <option value="Microsecond">Microsecond</option>
+                        <option value="Nanosecond">Nanosecond</option>
+                        <option value="Minute">Minute</option>
+                        <option value="Hour">Hour</option>
+                        <option value="Day">Day</option>
+                        <option value="Week">Week</option>
+                        <option value="Month">Month</option>
+                        <option value="Year">Year</option>
+                    </select>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper-left">
+            <h3>Results</h3>
+
+            <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                <label for="NanosecondRes" class ='label'>Nanosecond[ns]: </label>
+                <input type="text"  id="NanosecondRes" readonly>
+            </div>
+            <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                <label for="MicrosecondRes" class="label">Microsecond[<span>&#181;</span>s]: </label>
+                <input type="text"  id="MicrosecondRes" readonly>
+            </div>
+            <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                <label for="MillisecondRes" class="label">Millisecond[ms]: </label>
+                <input type="text"  id="MillisecondRes" readonly>
+            </div>
+
+            <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                <label for="SecondRes" class="label">Second[s]: </label>
+                <input type="text"  id="SecondRes" readonly>
+            </div>
+
+            <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                <label for="MinuteRes" class ='lable'>Minute[min]: </label>
+                <input type="text"  id="MinuteRes" readonly>
+            </div>
+            <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                <label for="HourRes" class='label'>Hour[h]: </label>
+                <input type="text"  id="HourRes" readonly>
+            </div>
+            <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                <label for="DayRes" class ='label'>Day[d]: </label>
+                <input type="text"  id="DayRes" readonly>
+            </div>
+            <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                <label for="WeekRes" class ='label'>Week: </label>
+                <input type="text"  id="WeekRes" readonly>
+            </div>
+            <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                <label for="MonthRes" class="label">Month: </label>
+                <input type="text"  id="MonthRes" readonly>
+            </div>
+
+            <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                <label for="YearRes" class="label">Year[y]: </label>
+                <input type="text"  id="YearRes" readonly>
+            </div>
+
+        </div>
+    </div>
 
     
-    <div class="container">
-        <div>
-            <h3 style="margin: 2rem;">Time Converter</h3>
+    
+
+    <footer>
+        <div class="footer-text">
+            <h4>Made with <span class="fa fa-heart"></span> by Aanchal</h4>
         </div>
-
-        <div class="container-block">
-            <div class="container-to">
-                <div class="form-group"style="display: flex; flex-direction: column;">
-                    <label for="input">To</label>
-                    <input type="number" id='input' placeholder="Enter the value">
-
-                    <select name="inputType" id="inputType">
-                        <option value="Second">Second</option>
-                        <option value="Millisecond">Millisecond</option>
-                        <option value="Microsecond">Microsecond</option>
-                        <option value="Nanosecond">Nanosecond</option>
-                        <option value="Minute">Minute</option>
-                        <option value="Hour">Hour</option>
-                        <option value="Day">Day</option>
-                        <option value="Week">Week</option>
-                        <option value="Month">Month</option>
-                        <option value="Year">Year</option>
-                    </select>
-                </div>
-
-                <!--div class="form-group">
-                    <div class="unit-box">
-                            <input type="button" value="Second" id="meterBtn">
-                            <input type="button" value="Millisecond" id="meterBtn">
-                            <input type="button" value="Microsecond" id="meterBtn">
-                            <input type="button" value="Nanosecond" id="meterBtn">
-                            <input type="button" value="Picosecond" id="meterBtn">
-                            <input type="button" value="Minute" id="meterBtn">
-                            <input type="button" value="Hour" id="meterBtn">
-                            <input type="button" value="Week" id="meterBtn">
-                            <input type="button" value="Month" id="meterBtn">
-                            <input type="button" value="Year" id="meterBtn">
-                    </div>
-                </div-->
-
-            </div>
-
-            <div class="container-from">
-                <div class="form-group"style="display: flex; flex-direction: column;">
-                    <label for="output">From</label>
-                    <input type="number" id='output' placeholder="Result will be shown here">
-
-                    <select name="resultType" id="resultType">
-                        <option value="Second">Second</option>
-                        <option value="Millisecond">Millisecond</option>
-                        <option value="Microsecond">Microsecond</option>
-                        <option value="Nanosecond">Nanosecond</option>
-                        <option value="Minute">Minute</option>
-                        <option value="Hour">Hour</option>
-                        <option value="Day">Day</option>
-                        <option value="Week">Week</option>
-                        <option value="Month">Month</option>
-                        <option value="Year">Year</option>
-                    </select>
-
-                </div>
-
-                <!--div class="form-group">
-                    <div class="unit-box">
-                        <input type="button" value="Second" id="meterBtn">
-                        <input type="button" value="Millisecond" id="meterBtn">
-                        <input type="button" value="Microsecond" id="meterBtn">
-                        <input type="button" value="Nanosecond" id="meterBtn">
-                        <input type="button" value="Picosecond" id="meterBtn">
-                        <input type="button" value="Minute" id="meterBtn">
-                        <input type="button" value="Hour" id="meterBtn">
-                        <input type="button" value="Week" id="meterBtn">
-                        <input type="button" value="Month" id="meterBtn">
-                        <input type="button" value="Year" id="meterBtn">
-                        
-                    </div>
-                </div-->
-
-            </div>
-
-        </div>
-        
-        <div><h3>Results: </h3></div>
-
-
-        <div class="container-block">
+        <div class="footer-icons">
+            <ul>
+                <li> <a href="https://github.com/aangupta"class="fa fa-github"target="_blank" ></a></li>
+                <li> <a href="https://www.linkedin.com/in/aanchal-gupta-3ab35bb1/" class="fa fa-linkedin" target="_blank"></a></li>
+                <li><a href="https://twitter.com/aangupta5"class="fa fa-twitter"target="_blank"></a> </li>
+                <li> <a href="mailto: aanchalgupta457@gmail.com" class="fa fa-envelope" target="_blank"></a> </li>
+            </ul>
             
-           <div class="container-left " style ="margin: 2rem;">
-
-                <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
-                    <label for="NanosecondRes">Nanosecond[ns]: </label>
-                    <input type="text"  id="NanosecondRes">
-                </div>
-                <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
-                    <label for="MicrosecondRes">Microsecond[<span>&#181;</span>s]: </label>
-                    <input type="text"  id="MicrosecondRes">
-                </div>
-                <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
-                    <label for="MillisecondRes">Millisecond[ms]: </label>
-                    <input type="text"  id="MillisecondRes">
-                </div>
-
-                <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
-                    <label for="SecondRes">Second[s]: </label>
-                    <input type="text"  id="SecondRes">
-                </div>
-
-                <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
-                    <label for="MinuteRes">Minute[min]: </label>
-                    <input type="text"  id="MinuteRes">
-                </div>
-
-           </div>
-
-
-           <div class="container-right" style ="margin: 2rem;">
-
-
-                <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
-                    <label for="HourRes">Hour[h]: </label>
-                    <input type="text"  id="HourRes">
-                </div>
-                <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
-                    <label for="DayRes">Day[d]: </label>
-                    <input type="text"  id="DayRes">
-                </div>
-                <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
-                    <label for="WeekRes">Week: </label>
-                    <input type="text"  id="WeekRes">
-                </div>
-                <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
-                    <label for="MonthRes">Month: </label>
-                    <input type="text"  id="MonthRes">
-                </div>
-
-                <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
-                    <label for="YearRes">Year[y]: </label>
-                    <input type="text"  id="YearRes">
-                </div>
-
-           </div>
-
-
         </div>
-
-
-       
-    </div>
+    </footer>
 
     <script>
         
@@ -942,6 +910,15 @@
         input.addEventListener('keyup', myResult);
         inpType.addEventListener('change', myResult);
         resType.addEventListener('change', myResult);
+
+        function myFunction() {
+                var x = document.getElementById("myTopnav");
+                if (x.className === "topnav") {
+                    x.className += " responsive";
+                } else {
+                    x.className = "topnav";
+                }
+        }
 
 
 

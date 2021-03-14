@@ -10,35 +10,58 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container-fliud">
-            <div class="navbar-header">
-                <a href="" class="navbar-brand">Unit Converter <i class="fas fa-tools" style="color: grey;"></i></a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li class="active"><a href ="index">Length</a></li>
-                <li><a href ="temperature.html">Temperature</a></li>
-                <li><a href ="weight.html">Weight</a></li>
-                <li><a href ="time.html">Time</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <div class="container">
-        <div>
-            <h3 style="margin: 2rem;">Length Converter</h3>
+    <header>
+        <div class="hd-text">
+            <a style = "text-decoration: none;" href= "index.html" class = "title" > <h2>Unit Converter</h2></a>
         </div>
 
-        <div class="container-block">
-            <div class="container-to">
-                <div class="form-group"style="display: flex; flex-direction: column;">
-                    <label for="input">To</label>
-                    <input type="number" id='input' placeholder="Enter the value">
+        <div class="topnav" id="myTopnav">
+            <a href="index.html" class="active">Length</a>
+            <a href="time.html">Time</a>
+            <a href="weight.html">Weight</a>
+            <a href="temperature.html">Temperature</a>
+            <a href= "https://utilityappmain.netlify.app/index.html" target="_blank" > Home</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+              <i class="fa fa-bars"></i>
+            </a>
+        </div>        
+        
+    </header>
+
+    <div class="wrapper">
+        <div class="wrapper-left">
+            <h3>Length Converter</h3>
+
+            <div class="container">
+                <div class="form-group">
+                    <label for="input" class ='label'>To:</label>
+                    <input type="number" id='input' placeholder="Enter the value" required>
                 </div>
 
-                <select name="inputType" id="inputType">
+                <select name="inputType" id="inputType" class ='select'>
+                    <option value="Meter">Meter</option>
+                    <option value="Kilometer">Kilometer</option>
+                    <option value="Millimeter">Millimeter</option>
+                    <option value="Centimeter">Centimeter</option>
+                    <option value="Micrometer">Micrometer</option>
+                    <option value="Nanometer">Nanometer</option>
+                    <option value="Foot">Foot</option>
+                    <option value="Mile">Mile</option>
+                    <option value="Inch">Inch</option>
+                    <option value="Yard">Yard</option>
+                </select>
+            </div>
+
+            <div class="container">
+                <div class="form-group">
+                    <label for="output" class ='label'>From:</label>
+                    <input type="number" id='output' placeholder="Result will be shown here" readonly>
+                </div>
+
+                <select name="resultType" id="resultType" class ='select'>
                     <option value="Meter">Meter</option>
                     <option value="Kilometer">Kilometer</option>
                     <option value="Millimeter">Millimeter</option>
@@ -51,97 +74,78 @@
                     <option value="Yard">Yard</option>
                 </select>
 
-               
-
-            </div>
-
-            <div class="container-from">
-                <div class="form-group"style="display: flex; flex-direction: column;">
-                    <label for="output">From</label>
-                    <input type="number" id='output' placeholder="Result will be shown here">
-                </div>
-
-                <select name="resultType" id="resultType">
-                    <option value="Meter">Meter</option>
-                    <option value="Kilometer">Kilometer</option>
-                    <option value="Millimeter">Millimeter</option>
-                    <option value="Centimeter">Centimeter</option>
-                    <option value="Micrometer">Micrometer</option>
-                    <option value="Nanometer">Nanometer</option>
-                    <option value="Foot">Foot</option>
-                    <option value="Mile">Mile</option>
-                    <option value="Inch">Inch</option>
-                    <option value="Yard">Yard</option>
-                </select>
-
-
-               
             </div>
 
         </div>
 
-        <div><h3>Results: </h3></div>
-
-        <div class="container-block">
-            
-            <div class="container-left " style ="margin: 2rem;">
-
-                <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
-                    <label for="MeterRes">Meter[m]: </label>
-                    <input type="text"  id="MeterRes">
-                </div>
- 
-                 <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
-                     <label for="KilometerRes">Kilometer[km]: </label>
-                     <input type="text"  id="KilometerRes">
-                 </div>
-                 <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
-                     <label for="MillimeterRes">Millimeter[mm]: </label>
-                     <input type="text"  id="MillimeterRes">
-                 </div>
-                 <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
-                     <label for="CentimeterRes">Centimeter[cm]: </label>
-                     <input type="text"  id="CentimeterRes">
-                 </div>
- 
-                 <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
-                     <label for="MicrometerRes">Micrometer[<span>&#181;</span>s]: </label>
-                     <input type="text"  id="MicrometerRes">
-                 </div>
- 
+        <div class="wrapper-left">
+            <h3>Results</h3>
+            <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                <label for="MeterRes" class="label">Meter[m]: </label>
+                <input type="text"  id="MeterRes" readonly>
+            </div>
+            <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                <label for="KilometerRes" class ='label'>Kilometer[km]: </label>
+                <input type="text"  id="KilometerRes" readonly>
+            </div>
+            <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                <label for="MillimeterRes" class="label">Millimeter[mm]: </label>
+                <input type="text"  id="MillimeterRes" readonly>
+            </div>
+            <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                <label for="CentimeterRes" class='label'>Centimeter[cm]: </label>
+                <input type="text"  id="CentimeterRes" readonly>
             </div>
 
-            <div class="container-block">
-            
-                <div class="container-left " style ="margin: 2rem;">
-    
-                    <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
-                        <label for="NanometerRes">Nanometer[nm]: </label>
-                        <input type="text"  id="NanometerRes">
-                    </div>
-     
-                     <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
-                         <label for="FootRes">Foot[ft]: </label>
-                         <input type="text"  id="FootRes">
-                     </div>
-                     <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
-                         <label for="MileRes">Mile[mi]: </label>
-                         <input type="text"  id="MileRes">
-                     </div>
-                     <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
-                         <label for="InchRes">Inch[in]: </label>
-                         <input type="text"  id="InchRes">
-                     </div>
-     
-                     <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
-                         <label for="YardRes">Yard[yd]: </label>
-                         <input type="text"  id="YardRes">
-                     </div>
-     
-                </div>
+            <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                <label for="MicrometerRes" class ='label'>Micrometer[<span>&#181;</span>s]: </label>
+                <input type="text"  id="MicrometerRes" readonly>
+            </div>
 
-       
+            <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                <label for="NanometerRes" class="label">Nanometer[nm]: </label>
+                <input type="text"  id="NanometerRes" readonly>
+            </div>
+
+             <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                 <label for="FootRes" class='label'>Foot[ft]: </label>
+                 <input type="text"  id="FootRes" readonly>
+             </div>
+             <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                 <label for="MileRes" class="label">Mile[mi]: </label>
+                 <input type="text"  id="MileRes" readonly>
+             </div>
+             <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                 <label for="InchRes" class="label">Inch[in]: </label>
+                 <input type="text"  id="InchRes" readonly>
+             </div>
+
+             <div class="form-group" style="display: flex; flex-direction: column; align-items: flex-start;">
+                 <label for="YardRes" class ='label'>Yard[yd]: </label>
+                 <input type="text"  id="YardRes" readonly>
+             </div>
+
+        </div>
     </div>
+
+ 
+
+    <footer>
+        <div class="footer-text">
+            <h4>Made with <span class="fa fa-heart"></span> by Aanchal</h4>
+        </div>
+        <div class="footer-icons">
+            <ul>
+                <li> <a href="https://github.com/aangupta"class="fa fa-github"target="_blank" ></a></li>
+                <li> <a href="https://www.linkedin.com/in/aanchal-gupta-3ab35bb1/" class="fa fa-linkedin" target="_blank"></a></li>
+                <li><a href="https://twitter.com/aangupta5"class="fa fa-twitter"target="_blank"></a> </li>
+                <li> <a href="mailto: aanchalgupta457@gmail.com" class="fa fa-envelope" target="_blank"></a> </li>
+            </ul>
+            
+        </div>
+    </footer>
+
+    
 
     <script>
 
@@ -873,6 +877,15 @@
         input.addEventListener('keyup', myResult);
         inpType.addEventListener('change', myResult);
         resType.addEventListener('change', myResult);
+
+        function myFunction() {
+                var x = document.getElementById("myTopnav");
+                if (x.className === "topnav") {
+                    x.className += " responsive";
+                } else {
+                    x.className = "topnav";
+                }
+        }
 
 
     </script>
